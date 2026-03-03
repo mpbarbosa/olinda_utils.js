@@ -4,22 +4,26 @@ import { colors, supportsColor, colorize } from '../../src/core/colors';
 // ─── colors object ───────────────────────────────────────────────────────────
 
 describe('colors', () => {
-	it('has reset code', () => expect(colors.reset).toBe('\x1b[0m'));
-	it('has bold code', () => expect(colors.bold).toBe('\x1b[1m'));
-	it('has dim code', () => expect(colors.dim).toBe('\x1b[2m'));
-	it('has red code', () => expect(colors.red).toBe('\x1b[31m'));
-	it('has green code', () => expect(colors.green).toBe('\x1b[32m'));
-	it('has yellow code', () => expect(colors.yellow).toBe('\x1b[33m'));
-	it('has blue code', () => expect(colors.blue).toBe('\x1b[34m'));
-	it('has cyan code', () => expect(colors.cyan).toBe('\x1b[36m'));
-	it('has white code', () => expect(colors.white).toBe('\x1b[37m'));
-	it('has brightRed code', () => expect(colors.brightRed).toBe('\x1b[91m'));
-	it('has brightGreen code', () => expect(colors.brightGreen).toBe('\x1b[92m'));
-	it('has brightYellow code', () => expect(colors.brightYellow).toBe('\x1b[93m'));
-	it('has brightBlue code', () => expect(colors.brightBlue).toBe('\x1b[94m'));
-	it('has brightMagenta code', () => expect(colors.brightMagenta).toBe('\x1b[95m'));
-	it('has brightCyan code', () => expect(colors.brightCyan).toBe('\x1b[96m'));
-	it('has brightWhite code', () => expect(colors.brightWhite).toBe('\x1b[97m'));
+	it.each([
+		['reset', '\x1b[0m'],
+		['bold', '\x1b[1m'],
+		['dim', '\x1b[2m'],
+		['red', '\x1b[31m'],
+		['green', '\x1b[32m'],
+		['yellow', '\x1b[33m'],
+		['blue', '\x1b[34m'],
+		['cyan', '\x1b[36m'],
+		['white', '\x1b[37m'],
+		['brightRed', '\x1b[91m'],
+		['brightGreen', '\x1b[92m'],
+		['brightYellow', '\x1b[93m'],
+		['brightBlue', '\x1b[94m'],
+		['brightMagenta', '\x1b[95m'],
+		['brightCyan', '\x1b[96m'],
+		['brightWhite', '\x1b[97m'],
+	] as [keyof typeof colors, string][])('should provide ANSI code for %s', (name, code) => {
+		expect(colors[name]).toBe(code);
+	});
 });
 
 // ─── supportsColor ───────────────────────────────────────────────────────────
@@ -97,5 +101,9 @@ describe('colorize', () => {
 	it('works with any ANSI code string', () => {
 		const result = colorize('world', colors.green);
 		expect(result).toBe(`\x1b[32mworld\x1b[0m`);
+	});
+
+	it('should return empty string when given empty input', () => {
+		expect(colorize('', colors.red)).toBe(`${colors.red}${colors.reset}`);
 	});
 });

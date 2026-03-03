@@ -1,7 +1,7 @@
 # colors — ANSI Color Module
 
-**Module:** `core/colors`  
-**Version:** 0.1.1  
+**Module:** `core/colors`
+**Version:** 0.1.1
 **Package:** `olinda_utils.js`
 
 ## Overview
@@ -139,5 +139,5 @@ console.log(`${boldRed}CRITICAL${colors.reset}`);
 
 ---
 
-**Last Updated:** 2026-03-03  
+**Last Updated:** 2026-03-03
 **Part of:** olinda_utils.js v0.1.1

@@ -1,7 +1,7 @@
 # logger
 
-**Module:** `core/logger`  
-**Version:** 1.0.0 (added in olinda_utils.js v0.1.2)  
+**Module:** `core/logger`
+**Version:** 1.0.0 (added in olinda_utils.js v0.1.2)
 **Architecture:** Class-based
 
 ## Overview

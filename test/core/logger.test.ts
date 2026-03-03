@@ -201,6 +201,77 @@ describe('Logger file logging', () => {
 		expect(() => l.reopenLogFiles()).not.toThrow();
 		await l.closeLogFile();
 	});
+
+	it('setLogFile() can be called twice (closes previous stream)', async () => {
+		const logFile2 = path.join(tmpDir, 'test2.log');
+		const l = new Logger({ quiet: true });
+		l.setLogFile(logFile);
+		l.setLogFile(logFile2); // covers line 106: this._logStream.end()
+		l.info('written to second log');
+		await l.closeLogFile();
+		expect(fs.existsSync(logFile2)).toBe(true);
+	});
+
+	it('openStepLogFile() can be called twice (closes previous stream)', async () => {
+		const stepLog1 = path.join(tmpDir, 'step1.log');
+		const stepLog2 = path.join(tmpDir, 'step2.log');
+		const l = new Logger({ quiet: true });
+		l.openStepLogFile(stepLog1);
+		l.openStepLogFile(stepLog2); // covers line 77: this._stepLogStream.end()
+		l.info('step log message');
+		await l.closeStepLogFile();
+		expect(fs.existsSync(stepLog2)).toBe(true);
+	});
+
+	it('reopenLogFiles() works with both log and step log streams open', async () => {
+		const stepLog = path.join(tmpDir, 'step.log');
+		const l = new Logger({ quiet: true });
+		l.setLogFile(logFile);
+		l.openStepLogFile(stepLog);
+		expect(() => l.reopenLogFiles()).not.toThrow(); // covers lines 142-145
+		l.info('after reopen');
+		await l.closeStepLogFile();
+		await l.closeLogFile();
+		expect(fs.existsSync(stepLog)).toBe(true);
+	});
+});
+
+// ─── Logger.step() ───────────────────────────────────────────────────────────
+
+describe('Logger.step()', () => {
+	let logSpy: jest.SpiedFunction<typeof console.log>;
+
+	beforeEach(() => {
+		logSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+	});
+
+	afterEach(() => {
+		jest.restoreAllMocks();
+	});
+
+	it('should log a step header to console when not quiet', () => {
+		const l = new Logger({ quiet: false });
+		l.step('Test Step');
+		expect(logSpy).toHaveBeenCalled();
+	});
+
+	it('should not log to console when quiet', () => {
+		const l = new Logger({ quiet: true });
+		l.step('Silent Step');
+		expect(logSpy).not.toHaveBeenCalled();
+	});
+
+	it('should write step header to file even when quiet', async () => {
+		const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'step-test-'));
+		const logFile = path.join(tmpDir, 'step.log');
+		const l = new Logger({ quiet: true });
+		l.setLogFile(logFile);
+		l.step('File Step');
+		await l.closeLogFile();
+		const content = fs.readFileSync(logFile, 'utf8');
+		expect(content).toContain('File Step');
+		fs.rmSync(tmpDir, { recursive: true, force: true });
+	});
 });
 
 // ─── default logger export ───────────────────────────────────────────────────
