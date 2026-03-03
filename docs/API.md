@@ -1,12 +1,21 @@
 # API Reference — olinda_utils.js
 
-Public API for `olinda_utils.js` v0.1.0.
+Public API for `olinda_utils.js` v0.2.0.
 
 CDN entry point:
 
 ```text
-https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.1.0/dist/src/index.js
+https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.2.0/dist/src/index.js
 ```
+
+---
+
+## Modules
+
+| Module | Description |
+|--------|-------------|
+| [colors](./colors.md) | ANSI color codes and terminal support detection |
+| [logger](./logger.md) | Colored logging with file output support |
 
 ---
 
@@ -15,7 +24,7 @@ https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.1.0/dist/src/index.js
 **Script tag (CJS):**
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.1.0/dist/src/index.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.2.0/dist/src/index.js"></script>
 ```
 
 **ES Module:**
@@ -23,6 +32,6 @@ https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.1.0/dist/src/index.js
 ```html
 <script type="module">
     import { ... } from
-        'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.1.0/dist/src/index.js';
+        'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.2.0/dist/src/index.js';
 </script>
 ```
