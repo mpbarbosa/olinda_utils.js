@@ -1,9 +1,9 @@
 # utils — General Utility Functions
 
 **Module:** `core/utils`
-**Version:** 0.3.1
+**Version:** 0.3.2
 **Type:** Pure Functions Only
-**Since:** 0.3.1
+**Since:** 0.3.2
 
 ## Overview
 
