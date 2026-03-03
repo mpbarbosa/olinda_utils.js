@@ -24,7 +24,10 @@ olinda_utils.js/
 │   └── index.test.ts     # Smoke tests for the public export surface
 ├── docs/
 │   ├── API.md            # Public API reference
-│   └── ARCHITECTURE.md   # This file
+│   ├── ARCHITECTURE.md   # This file
+│   ├── GETTING_STARTED.md
+│   ├── colors.md         # colors module reference
+│   └── logger.md         # logger module reference
 ├── dist/
 │   ├── src/              # CJS compiled output (tracked for CDN)
 │   └── types/            # TypeScript declaration files
@@ -89,11 +92,12 @@ https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@{version}/dist/src/index.j
 Deployment flow (automated by `scripts/deploy.sh`):
 
 1. `npm run build` — compile TypeScript
-2. `git add dist/` — stage compiled output
+2. `git add dist/ cdn-delivery.sh` — stage compiled output (skipped if nothing changed)
 3. `git commit` — commit artifacts
-4. `git tag v{version}` — version tag
-5. `git push --tags` — push to GitHub (jsDelivr picks up the tag)
-6. `npm run cdn` — generate `cdn-urls.txt`
+4. `git pull --rebase origin {branch}` — sync with remote before tagging
+5. `git tag v{version}` — version tag (skipped if tag already exists)
+6. `git push origin {branch} --tags` — push to GitHub (jsDelivr picks up the tag)
+7. `npm run cdn` — generate `cdn-urls.txt`
 
 ---
 

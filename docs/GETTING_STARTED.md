@@ -11,21 +11,12 @@ This guide walks you through using `olinda_utils.js` in your project.
 
 The easiest way to use `olinda_utils.js` in a browser is via jsDelivr:
 
-```html
-<!-- Load specific version (recommended for production) -->
-<script src="https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.2.0/dist/src/index.js"></script>
-
-<script>
-  const { colors, colorize, Logger } = window.olindaUtils ?? {};
-</script>
-```
-
-**ES Module import:**
+**ES Module import (recommended for browser):**
 
 ```html
 <script type="module">
   import { colors, colorize, Logger, logger } from
-    'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.2.0/dist/src/index.js';
+    'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.2.1/dist/src/index.js';
 
   logger.info('olinda_utils.js loaded');
 </script>
@@ -48,11 +39,29 @@ Then import from the compiled output:
 import { colors, colorize, Logger } from './dist/src/index.js';
 ```
 
+Alternatively, install directly from GitHub and import by package name:
+
+```bash
+npm install github:mpbarbosa/olinda_utils.js
+```
+
+```javascript
+import { colors, colorize, Logger, logger, LogLevel, stripAnsi } from 'olinda_utils.js';
+```
+
 ## Core Modules
+
+> **Note:** `Logger` (file logging, `openStepLogFile`, etc.) and `supportsColor()` rely on
+> Node.js built-ins (`fs`, `process`) and are **not available in browser contexts**.
 
 ### Colors
 
 ```javascript
+// CDN (browser ES module)
+import { colors, colorize } from
+  'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.2.1/dist/src/index.js';
+
+// Node.js (after build or GitHub install)
 import { colors, colorize, supportsColor } from 'olinda_utils.js';
 
 // Use raw ANSI codes
@@ -70,6 +79,8 @@ if (supportsColor()) {
 
 ### Logger
 
+> **Node.js only** — Logger uses `fs` for file output and is not browser-compatible.
+
 ```javascript
 import { Logger, logger } from 'olinda_utils.js';
 
@@ -81,7 +92,7 @@ logger.error('Connection failed');
 
 // Or create a named logger
 const log = new Logger({ prefix: '[server]', quiet: false, verbose: true });
-log.step('Step 1: Connecting to database');
+log.step('Step 1: Connecting to database');   // prominent section header
 log.info('Connecting...');
 log.debug('Debug details (only shown when verbose=true)');
 
@@ -89,6 +100,14 @@ log.debug('Debug details (only shown when verbose=true)');
 log.setLogFile('/var/log/myapp/run.log');
 log.info('This goes to console AND the log file');
 await log.closeLogFile();
+
+// Per-step secondary log file (e.g. in workflow automation)
+log.openStepLogFile('/var/log/myapp/step1.log');
+log.info('Logged to both main and step file');
+await log.closeStepLogFile();
+
+// Reopen log streams after git operations that may replace files on disk
+log.reopenLogFiles();
 ```
 
 ### LogLevel constants
