@@ -149,3 +149,6 @@ vite.config.ts.timestamp-*
 .ai_workflow/.incremental_cache/
 .ai_workflow/.ai_cache/
 .ai_workflow/commit_history.json
+
+# Jest cache
+.jest-cache/

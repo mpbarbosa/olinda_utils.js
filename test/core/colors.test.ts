@@ -73,6 +73,23 @@ describe('supportsColor', () => {
 		process.env['NO_COLOR'] = '1';
 		expect(supportsColor()).toBe(false);
 	});
+
+	// NO_COLOR='' (empty string): !'' is truthy, so our implementation treats it as
+	// "not set" and allows colour. Documents a deliberate deviation from the
+	// strict NO_COLOR spec (which says "when present, regardless of value").
+	it('returns true when NO_COLOR is empty string (implementation treats as unset)', () => {
+		Object.defineProperty(process.stdout, 'isTTY', { value: true, configurable: true });
+		delete process.env['TERM'];
+		process.env['NO_COLOR'] = '';
+		expect(supportsColor()).toBe(true);
+	});
+
+	it('returns false when isTTY is undefined (non-TTY stream)', () => {
+		Object.defineProperty(process.stdout, 'isTTY', { value: undefined, configurable: true });
+		delete process.env['TERM'];
+		delete process.env['NO_COLOR'];
+		expect(supportsColor()).toBe(false);
+	});
 });
 
 // ─── colorize ────────────────────────────────────────────────────────────────

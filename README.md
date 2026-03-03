@@ -7,7 +7,7 @@ Public JavaScript utility library — TypeScript-authored, delivered via **jsDel
 **CDN (recommended):**
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.2.0/dist/src/index.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.2.1/dist/src/index.js"></script>
 ```
 
 **ES Module:**
@@ -15,7 +15,7 @@ Public JavaScript utility library — TypeScript-authored, delivered via **jsDel
 ```html
 <script type="module">
   import { colors, colorize, Logger } from
-    'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.2.0/dist/src/index.js';
+    'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.2.1/dist/src/index.js';
 </script>
 ```
 
@@ -80,11 +80,12 @@ bash scripts/deploy.sh
 **Prerequisites:** Node.js ≥ 18, `git` with push access to origin.
 **Steps:**
 1. `npm run build` — compile TypeScript to `dist/`
-2. `git add dist/` — stage build artifacts
+2. `git add dist/ cdn-delivery.sh` — stage build artifacts (skipped if nothing changed)
 3. `git commit` — commit artifacts
-4. `git tag v{version}` — create version tag
-5. `git push --tags` — push to GitHub (jsDelivr picks up the tag)
-6. `npm run cdn` — generate `cdn-urls.txt`
+4. `git pull --rebase origin {branch}` — sync with remote before tagging
+5. `git tag v{version}` — create version tag (skipped if tag already exists)
+6. `git push origin {branch} --tags` — push branch and tags to GitHub (jsDelivr picks up the tag)
+7. `npm run cdn` — generate `cdn-urls.txt`
 
 ---
 
@@ -119,13 +120,15 @@ olinda_utils.js/
 ├── docs/          # API reference and guides
 ├── dist/          # Compiled output (committed for CDN)
 ├── scripts/       # Shell automation scripts
-├── .github/       # GitHub Actions workflows and Copilot instructions
+├── .github/       # CI workflow and Copilot instructions
 └── cdn-delivery.sh
 ```
 
 ### `.github/`
 
 Contains GitHub-specific resources:
+- `workflows/ci.yml` — CI pipeline (type-check, lint, test on Node 18/20/22)
+- `dependabot.yml` — automated npm and GitHub Actions dependency updates (weekly)
 - `copilot-instructions.md` — Copilot coding guidelines for this project
 
 ## License

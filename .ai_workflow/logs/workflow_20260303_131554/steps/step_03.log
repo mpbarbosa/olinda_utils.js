@@ -1,0 +1,41 @@
+[2026-03-03T16:17:52.942Z] 
+→ Starting: Script References
+[2026-03-03T16:17:52.942Z] ════════════════════════════════════════════════════════════
+[2026-03-03T16:17:52.942Z] 🔷  Step 3: Script Reference Validation
+[2026-03-03T16:17:52.942Z] ════════════════════════════════════════════════════════════
+[2026-03-03T16:17:52.952Z] Language: bash, patterns: *.sh
+[2026-03-03T16:17:52.958Z] Found 3 script(s)
+[2026-03-03T16:17:52.959Z] References: 3, missing: 0
+[2026-03-03T16:17:52.960Z] Non-executable: 0
+[2026-03-03T16:17:52.960Z] Undocumented: 0
+[2026-03-03T16:17:55.122Z] ✓ GitHub Copilot SDK initialized successfully
+[2026-03-03T16:17:56.017Z] Available Copilot models (13): claude-sonnet-4.5, claude-haiku-4.5, claude-opus-4.5, claude-sonnet-4, gemini-3-pro-preview, gpt-5.2-codex, gpt-5.2, gpt-5.1-codex-max, gpt-5.1-codex, gpt-5.1, gpt-5.1-codex-mini, gpt-5-mini, gpt-4.1
+[2026-03-03T16:17:56.133Z] [DEBUG] AI cache initialized: .ai_workflow/.ai_cache
+[2026-03-03T16:17:56.141Z] [DEBUG] Cache miss: abbb9d9c...
+[2026-03-03T16:17:56.141Z] [DEBUG] Request Options: {"model":"gpt-4.1","temperature":0.7,"maxTokens":4000,"stream":false,"persona":"devops_engineer","cache":true}
+[2026-03-03T16:17:56.141Z] [DEBUG] Persona: devops_engineer
+[2026-03-03T16:17:56.141Z] [DEBUG] Model: gpt-4.1
+[2026-03-03T16:17:56.141Z] [AI] SDK call starting — persona: devops_engineer, model: gpt-4.1, prompt_chars: 4280
+[2026-03-03T16:17:56.142Z] [DEBUG] Executing AI request (attempt 1/3)
+[2026-03-03T16:17:56.142Z] [DEBUG] AiHelper._sendRequest called
+[2026-03-03T16:17:56.142Z] [Copilot SDK] Calling sendMessage — model: gpt-4.1, prompt_length: 4280 chars
+[2026-03-03T16:17:56.142Z] [DEBUG] Sending prompt...
+[2026-03-03T16:18:56.172Z] ⚠ [AI] SDK call failed — persona: devops_engineer, model: gpt-4.1, error: Timeout after 60000ms waiting for session.idle
+[2026-03-03T16:18:56.172Z] [AI] Retrying in 1000ms (attempt 2/3)...
+[2026-03-03T16:18:59.467Z] [AI] Client and session recreated for retry
+[2026-03-03T16:18:59.468Z] [AI] Timeout detected — increasing timeout to 120000ms for retry
+[2026-03-03T16:18:59.468Z] [DEBUG] Executing AI request (attempt 2/3)
+[2026-03-03T16:18:59.468Z] [DEBUG] AiHelper._sendRequest called
+[2026-03-03T16:18:59.468Z] [Copilot SDK] Calling sendMessage — model: gpt-4.1, prompt_length: 4280 chars
+[2026-03-03T16:18:59.468Z] [DEBUG] Sending prompt...
+[2026-03-03T16:19:36.074Z] [Copilot SDK] sendAndWait returned — model: gpt-4.1
+[2026-03-03T16:19:36.074Z] [AI] SDK call completed — persona: devops_engineer, model: gpt-4.1, response_chars: 4592, latency: 36606ms
+[2026-03-03T16:19:36.074Z] ✓ AI request completed successfully
+[2026-03-03T16:19:36.075Z] [DEBUG] Prompt logged to: 2026-03-03T16-19-36-075Z_0001_devops_engineer.md
+[2026-03-03T16:19:36.080Z] [DEBUG] Response cached: abbb9d9c...
+[2026-03-03T16:19:36.081Z] ✓ Step 3 completed - no issues found
+[2026-03-03T16:19:36.081Z] ✓ Step step_03 completed in 103140ms
+[2026-03-03T16:19:36.081Z] [DEBUG] [Performance] step_03: 1m 43s
+[2026-03-03T16:19:36.081Z] ✗ [CRITICAL] Operation 'step_03' took 1m 43s (memory: 17.36MB)
+[2026-03-03T16:19:36.082Z] [DEBUG] Recorded outcome for step_03: success
+[2026-03-03T16:19:36.082Z] ✓ Completed: Script References (103s)

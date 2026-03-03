@@ -21,11 +21,15 @@ describe('stripAnsi', () => {
 // ─── LogLevel ─────────────────────────────────────────────────────────────────
 
 describe('LogLevel', () => {
-	it('has DEBUG', () => expect(LogLevel.DEBUG).toBe('debug'));
-	it('has INFO', () => expect(LogLevel.INFO).toBe('info'));
-	it('has SUCCESS', () => expect(LogLevel.SUCCESS).toBe('success'));
-	it('has WARN', () => expect(LogLevel.WARN).toBe('warn'));
-	it('has ERROR', () => expect(LogLevel.ERROR).toBe('error'));
+	it.each([
+		['DEBUG', 'debug'],
+		['INFO', 'info'],
+		['SUCCESS', 'success'],
+		['WARN', 'warn'],
+		['ERROR', 'error'],
+	] as [keyof typeof LogLevel, string][])('should define %s as %s', (key, value) => {
+		expect(LogLevel[key]).toBe(value);
+	});
 });
 
 // ─── Logger constructor ───────────────────────────────────────────────────────
@@ -38,19 +42,13 @@ describe('Logger constructor', () => {
 		expect(l.prefix).toBe('');
 	});
 
-	it('accepts quiet option', () => {
-		const l = new Logger({ quiet: true });
-		expect(l.quiet).toBe(true);
-	});
-
-	it('accepts verbose option', () => {
-		const l = new Logger({ verbose: true });
-		expect(l.verbose).toBe(true);
-	});
-
-	it('accepts prefix option', () => {
-		const l = new Logger({ prefix: '[TEST]' });
-		expect(l.prefix).toBe('[TEST]');
+	it.each([
+		[{ quiet: true }, 'quiet', true],
+		[{ verbose: true }, 'verbose', true],
+		[{ prefix: '[TEST]' }, 'prefix', '[TEST]'],
+	] as [ConstructorParameters<typeof Logger>[0], keyof Logger, unknown][])('should accept %s option', (opts, prop, expected) => {
+		const l = new Logger(opts);
+		expect(l[prop]).toBe(expected);
 	});
 });
 
