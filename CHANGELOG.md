@@ -11,6 +11,20 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [0.3.0] — 2026-03-03
+
+### Added
+
+- `src/core/utils.ts` — general utility functions module (pure functions only)
+    - **String:** `camelCase`, `kebabCase`, `snakeCase`, `pascalCase`, `capitalize`, `truncate`, `sanitize`, `cleanWhitespace`, `escapeRegex`
+    - **Array:** `dedupe`, `chunk`, `flatten`, `groupBy`, `sortBy`, `intersection`, `difference`, `partition`
+    - **Object:** `deepClone`, `deepMerge`, `pick`, `omit`, `getProperty`, `setProperty`, `hasProperty`, `deepEqual`, `isEmpty`
+- `src/index.ts` — re-exports all 26 utils functions
+- `test/core/utils.test.ts` — comprehensive tests for all utils functions
+- `docs/utils.md` — API reference for the utils module
+
+---
+
 ## [0.2.1] — 2026-03-03
 
 ### Added
