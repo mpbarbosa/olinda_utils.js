@@ -2,7 +2,7 @@ project:
   name: olinda_utils.js
   type: nodejs-library
   kind: nodejs_automation  # pure utility library for JavaScript/TypeScript projects
-  version: '0.1.0'  # keep in sync with package.json
+  version: '0.2.0'  # keep in sync with package.json
   description: Public TypeScript utility library
 
 tech_stack:
