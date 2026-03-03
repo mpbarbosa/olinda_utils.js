@@ -1,0 +1,372 @@
+0bf55dcd6e9ef114fcf531aa1b04050c
+"use strict";
+
+/**
+ * ANSI Color Codes Module
+ * @module core/colors
+ * @description ANSI color codes for terminal output with color support detection.
+ * @since 0.1.1
+ */
+/* istanbul ignore next */
+function cov_161oxgbb22() {
+  var path = "/home/mpb/Documents/GitHub/olinda_utils.js/src/core/colors.ts";
+  var hash = "8c6768d4df5cfd8eee553d9a6af5a0ac441a3748";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/mpb/Documents/GitHub/olinda_utils.js/src/core/colors.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 8,
+          column: 0
+        },
+        end: {
+          line: 8,
+          column: 62
+        }
+      },
+      "1": {
+        start: {
+          line: 9,
+          column: 0
+        },
+        end: {
+          line: 9,
+          column: 24
+        }
+      },
+      "2": {
+        start: {
+          line: 10,
+          column: 0
+        },
+        end: {
+          line: 10,
+          column: 38
+        }
+      },
+      "3": {
+        start: {
+          line: 11,
+          column: 0
+        },
+        end: {
+          line: 11,
+          column: 28
+        }
+      },
+      "4": {
+        start: {
+          line: 13,
+          column: 0
+        },
+        end: {
+          line: 35,
+          column: 2
+        }
+      },
+      "5": {
+        start: {
+          line: 41,
+          column: 4
+        },
+        end: {
+          line: 43,
+          column: 34
+        }
+      },
+      "6": {
+        start: {
+          line: 53,
+          column: 4
+        },
+        end: {
+          line: 55,
+          column: 5
+        }
+      },
+      "7": {
+        start: {
+          line: 54,
+          column: 8
+        },
+        end: {
+          line: 54,
+          column: 20
+        }
+      },
+      "8": {
+        start: {
+          line: 56,
+          column: 4
+        },
+        end: {
+          line: 56,
+          column: 52
+        }
+      },
+      "9": {
+        start: {
+          line: 58,
+          column: 0
+        },
+        end: {
+          line: 58,
+          column: 33
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "supportsColor",
+        decl: {
+          start: {
+            line: 40,
+            column: 9
+          },
+          end: {
+            line: 40,
+            column: 22
+          }
+        },
+        loc: {
+          start: {
+            line: 40,
+            column: 25
+          },
+          end: {
+            line: 44,
+            column: 1
+          }
+        },
+        line: 40
+      },
+      "1": {
+        name: "colorize",
+        decl: {
+          start: {
+            line: 52,
+            column: 9
+          },
+          end: {
+            line: 52,
+            column: 17
+          }
+        },
+        loc: {
+          start: {
+            line: 52,
+            column: 31
+          },
+          end: {
+            line: 57,
+            column: 1
+          }
+        },
+        line: 52
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 41,
+            column: 12
+          },
+          end: {
+            line: 43,
+            column: 32
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 41,
+            column: 12
+          },
+          end: {
+            line: 41,
+            column: 41
+          }
+        }, {
+          start: {
+            line: 42,
+            column: 8
+          },
+          end: {
+            line: 42,
+            column: 38
+          }
+        }, {
+          start: {
+            line: 43,
+            column: 8
+          },
+          end: {
+            line: 43,
+            column: 32
+          }
+        }],
+        line: 41
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 53,
+            column: 4
+          },
+          end: {
+            line: 55,
+            column: 5
+          }
+        },
+        type: "if",
+        locations: [{
+          start: {
+            line: 53,
+            column: 4
+          },
+          end: {
+            line: 55,
+            column: 5
+          }
+        }, {
+          start: {
+            line: undefined,
+            column: undefined
+          },
+          end: {
+            line: undefined,
+            column: undefined
+          }
+        }],
+        line: 53
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0
+    },
+    b: {
+      "0": [0, 0, 0],
+      "1": [0, 0]
+    },
+    inputSourceMap: {
+      file: "/home/mpb/Documents/GitHub/olinda_utils.js/src/core/colors.ts",
+      mappings: ";AAAA;;;;;GAKG;;;AAmCH,sCAMC;AASD,4BAKC;AArDD,yDAAyD;AAC5C,QAAA,MAAM,GAAG;IACrB,cAAc;IACd,KAAK,EAAE,SAAS;IAChB,IAAI,EAAE,SAAS;IACf,GAAG,EAAE,SAAS;IAEd,oBAAoB;IACpB,KAAK,EAAE,UAAU;IACjB,GAAG,EAAE,UAAU;IACf,KAAK,EAAE,UAAU;IACjB,MAAM,EAAE,UAAU;IAClB,IAAI,EAAE,UAAU;IAChB,OAAO,EAAE,UAAU;IACnB,IAAI,EAAE,UAAU;IAChB,KAAK,EAAE,UAAU;IAEjB,2BAA2B;IAC3B,SAAS,EAAE,UAAU;IACrB,WAAW,EAAE,UAAU;IACvB,YAAY,EAAE,UAAU;IACxB,UAAU,EAAE,UAAU;IACtB,aAAa,EAAE,UAAU;IACzB,UAAU,EAAE,UAAU;IACtB,WAAW,EAAE,UAAU;CACd,CAAC;AAIX;;;GAGG;AACH,SAAgB,aAAa;IAC5B,OAAO,CACN,OAAO,CAAC,MAAM,CAAC,KAAK,KAAK,IAAI;QAC7B,OAAO,CAAC,GAAG,CAAC,MAAM,CAAC,KAAK,MAAM;QAC9B,CAAC,OAAO,CAAC,GAAG,CAAC,UAAU,CAAC,CACxB,CAAC;AACH,CAAC;AAED;;;;;;GAMG;AACH,SAAgB,QAAQ,CAAC,IAAY,EAAE,KAAa;IACnD,IAAI,CAAC,aAAa,EAAE,EAAE,CAAC;QACtB,OAAO,IAAI,CAAC;IACb,CAAC;IACD,OAAO,GAAG,KAAK,GAAG,IAAI,GAAG,cAAM,CAAC,KAAK,EAAE,CAAC;AACzC,CAAC;AAED,kBAAe,cAAM,CAAC",
+      names: [],
+      sources: ["/home/mpb/Documents/GitHub/olinda_utils.js/src/core/colors.ts"],
+      sourcesContent: ["/**\n * ANSI Color Codes Module\n * @module core/colors\n * @description ANSI color codes for terminal output with color support detection.\n * @since 0.1.1\n */\n\n/** ANSI color/style escape codes for terminal output. */\nexport const colors = {\n\t// Text styles\n\treset: '\\x1b[0m',\n\tbold: '\\x1b[1m',\n\tdim: '\\x1b[2m',\n\n\t// Foreground colors\n\tblack: '\\x1b[30m',\n\tred: '\\x1b[31m',\n\tgreen: '\\x1b[32m',\n\tyellow: '\\x1b[33m',\n\tblue: '\\x1b[34m',\n\tmagenta: '\\x1b[35m',\n\tcyan: '\\x1b[36m',\n\twhite: '\\x1b[37m',\n\n\t// Bright foreground colors\n\tbrightRed: '\\x1b[91m',\n\tbrightGreen: '\\x1b[92m',\n\tbrightYellow: '\\x1b[93m',\n\tbrightBlue: '\\x1b[94m',\n\tbrightMagenta: '\\x1b[95m',\n\tbrightCyan: '\\x1b[96m',\n\tbrightWhite: '\\x1b[97m',\n} as const;\n\nexport type ColorName = keyof typeof colors;\n\n/**\n * Check if the current terminal supports ANSI color output.\n * @returns `true` when stdout is a TTY, `TERM` is not `'dumb'`, and `NO_COLOR` is unset.\n */\nexport function supportsColor(): boolean {\n\treturn (\n\t\tprocess.stdout.isTTY === true &&\n\t\tprocess.env['TERM'] !== 'dumb' &&\n\t\t!process.env['NO_COLOR']\n\t);\n}\n\n/**\n * Wrap `text` in the given ANSI escape code, then reset.\n * Falls back to plain text when the terminal does not support colors.\n * @param text  - The string to colorize.\n * @param color - An ANSI escape sequence (e.g. `colors.red`).\n * @returns The colorized string, or `text` unchanged when colors are unsupported.\n */\nexport function colorize(text: string, color: string): string {\n\tif (!supportsColor()) {\n\t\treturn text;\n\t}\n\treturn `${color}${text}${colors.reset}`;\n}\n\nexport default colors;\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "8c6768d4df5cfd8eee553d9a6af5a0ac441a3748"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_161oxgbb22 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_161oxgbb22();
+cov_161oxgbb22().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/* istanbul ignore next */
+cov_161oxgbb22().s[1]++;
+exports.colors = void 0;
+/* istanbul ignore next */
+cov_161oxgbb22().s[2]++;
+exports.supportsColor = supportsColor;
+/* istanbul ignore next */
+cov_161oxgbb22().s[3]++;
+exports.colorize = colorize;
+/** ANSI color/style escape codes for terminal output. */
+/* istanbul ignore next */
+cov_161oxgbb22().s[4]++;
+exports.colors = {
+  // Text styles
+  reset: '\x1b[0m',
+  bold: '\x1b[1m',
+  dim: '\x1b[2m',
+  // Foreground colors
+  black: '\x1b[30m',
+  red: '\x1b[31m',
+  green: '\x1b[32m',
+  yellow: '\x1b[33m',
+  blue: '\x1b[34m',
+  magenta: '\x1b[35m',
+  cyan: '\x1b[36m',
+  white: '\x1b[37m',
+  // Bright foreground colors
+  brightRed: '\x1b[91m',
+  brightGreen: '\x1b[92m',
+  brightYellow: '\x1b[93m',
+  brightBlue: '\x1b[94m',
+  brightMagenta: '\x1b[95m',
+  brightCyan: '\x1b[96m',
+  brightWhite: '\x1b[97m'
+};
+/**
+ * Check if the current terminal supports ANSI color output.
+ * @returns `true` when stdout is a TTY, `TERM` is not `'dumb'`, and `NO_COLOR` is unset.
+ */
+function supportsColor() {
+  /* istanbul ignore next */
+  cov_161oxgbb22().f[0]++;
+  cov_161oxgbb22().s[5]++;
+  return /* istanbul ignore next */(cov_161oxgbb22().b[0][0]++, process.stdout.isTTY === true) &&
+  /* istanbul ignore next */
+  (cov_161oxgbb22().b[0][1]++, process.env['TERM'] !== 'dumb') &&
+  /* istanbul ignore next */
+  (cov_161oxgbb22().b[0][2]++, !process.env['NO_COLOR']);
+}
+/**
+ * Wrap `text` in the given ANSI escape code, then reset.
+ * Falls back to plain text when the terminal does not support colors.
+ * @param text  - The string to colorize.
+ * @param color - An ANSI escape sequence (e.g. `colors.red`).
+ * @returns The colorized string, or `text` unchanged when colors are unsupported.
+ */
+function colorize(text, color) {
+  /* istanbul ignore next */
+  cov_161oxgbb22().f[1]++;
+  cov_161oxgbb22().s[6]++;
+  if (!supportsColor()) {
+    /* istanbul ignore next */
+    cov_161oxgbb22().b[1][0]++;
+    cov_161oxgbb22().s[7]++;
+    return text;
+  } else
+  /* istanbul ignore next */
+  {
+    cov_161oxgbb22().b[1][1]++;
+  }
+  cov_161oxgbb22().s[8]++;
+  return `${color}${text}${exports.colors.reset}`;
+}
+/* istanbul ignore next */
+cov_161oxgbb22().s[9]++;
+exports.default = exports.colors;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfMTYxb3hnYmIyMiIsInBhdGgiLCJoYXNoIiwiZ2xvYmFsIiwiRnVuY3Rpb24iLCJnY3YiLCJjb3ZlcmFnZURhdGEiLCJzdGF0ZW1lbnRNYXAiLCJzdGFydCIsImxpbmUiLCJjb2x1bW4iLCJlbmQiLCJmbk1hcCIsIm5hbWUiLCJkZWNsIiwibG9jIiwiYnJhbmNoTWFwIiwidHlwZSIsImxvY2F0aW9ucyIsInVuZGVmaW5lZCIsInMiLCJmIiwiYiIsImlucHV0U291cmNlTWFwIiwiZmlsZSIsIm1hcHBpbmdzIiwibmFtZXMiLCJzb3VyY2VzIiwic291cmNlc0NvbnRlbnQiLCJ2ZXJzaW9uIiwiX2NvdmVyYWdlU2NoZW1hIiwiY292ZXJhZ2UiLCJhY3R1YWxDb3ZlcmFnZSIsImV4cG9ydHMiLCJzdXBwb3J0c0NvbG9yIiwiY29sb3JpemUiLCJjb2xvcnMiLCJyZXNldCIsImJvbGQiLCJkaW0iLCJibGFjayIsInJlZCIsImdyZWVuIiwieWVsbG93IiwiYmx1ZSIsIm1hZ2VudGEiLCJjeWFuIiwid2hpdGUiLCJicmlnaHRSZWQiLCJicmlnaHRHcmVlbiIsImJyaWdodFllbGxvdyIsImJyaWdodEJsdWUiLCJicmlnaHRNYWdlbnRhIiwiYnJpZ2h0Q3lhbiIsImJyaWdodFdoaXRlIiwicHJvY2VzcyIsInN0ZG91dCIsImlzVFRZIiwiZW52IiwidGV4dCIsImNvbG9yIiwiZGVmYXVsdCJdLCJzb3VyY2VzIjpbIi9ob21lL21wYi9Eb2N1bWVudHMvR2l0SHViL29saW5kYV91dGlscy5qcy9zcmMvY29yZS9jb2xvcnMudHMiXSwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBBTlNJIENvbG9yIENvZGVzIE1vZHVsZVxuICogQG1vZHVsZSBjb3JlL2NvbG9yc1xuICogQGRlc2NyaXB0aW9uIEFOU0kgY29sb3IgY29kZXMgZm9yIHRlcm1pbmFsIG91dHB1dCB3aXRoIGNvbG9yIHN1cHBvcnQgZGV0ZWN0aW9uLlxuICogQHNpbmNlIDAuMS4xXG4gKi9cblxuLyoqIEFOU0kgY29sb3Ivc3R5bGUgZXNjYXBlIGNvZGVzIGZvciB0ZXJtaW5hbCBvdXRwdXQuICovXG5leHBvcnQgY29uc3QgY29sb3JzID0ge1xuXHQvLyBUZXh0IHN0eWxlc1xuXHRyZXNldDogJ1xceDFiWzBtJyxcblx0Ym9sZDogJ1xceDFiWzFtJyxcblx0ZGltOiAnXFx4MWJbMm0nLFxuXG5cdC8vIEZvcmVncm91bmQgY29sb3JzXG5cdGJsYWNrOiAnXFx4MWJbMzBtJyxcblx0cmVkOiAnXFx4MWJbMzFtJyxcblx0Z3JlZW46ICdcXHgxYlszMm0nLFxuXHR5ZWxsb3c6ICdcXHgxYlszM20nLFxuXHRibHVlOiAnXFx4MWJbMzRtJyxcblx0bWFnZW50YTogJ1xceDFiWzM1bScsXG5cdGN5YW46ICdcXHgxYlszNm0nLFxuXHR3aGl0ZTogJ1xceDFiWzM3bScsXG5cblx0Ly8gQnJpZ2h0IGZvcmVncm91bmQgY29sb3JzXG5cdGJyaWdodFJlZDogJ1xceDFiWzkxbScsXG5cdGJyaWdodEdyZWVuOiAnXFx4MWJbOTJtJyxcblx0YnJpZ2h0WWVsbG93OiAnXFx4MWJbOTNtJyxcblx0YnJpZ2h0Qmx1ZTogJ1xceDFiWzk0bScsXG5cdGJyaWdodE1hZ2VudGE6ICdcXHgxYls5NW0nLFxuXHRicmlnaHRDeWFuOiAnXFx4MWJbOTZtJyxcblx0YnJpZ2h0V2hpdGU6ICdcXHgxYls5N20nLFxufSBhcyBjb25zdDtcblxuZXhwb3J0IHR5cGUgQ29sb3JOYW1lID0ga2V5b2YgdHlwZW9mIGNvbG9ycztcblxuLyoqXG4gKiBDaGVjayBpZiB0aGUgY3VycmVudCB0ZXJtaW5hbCBzdXBwb3J0cyBBTlNJIGNvbG9yIG91dHB1dC5cbiAqIEByZXR1cm5zIGB0cnVlYCB3aGVuIHN0ZG91dCBpcyBhIFRUWSwgYFRFUk1gIGlzIG5vdCBgJ2R1bWInYCwgYW5kIGBOT19DT0xPUmAgaXMgdW5zZXQuXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBzdXBwb3J0c0NvbG9yKCk6IGJvb2xlYW4ge1xuXHRyZXR1cm4gKFxuXHRcdHByb2Nlc3Muc3Rkb3V0LmlzVFRZID09PSB0cnVlICYmXG5cdFx0cHJvY2Vzcy5lbnZbJ1RFUk0nXSAhPT0gJ2R1bWInICYmXG5cdFx0IXByb2Nlc3MuZW52WydOT19DT0xPUiddXG5cdCk7XG59XG5cbi8qKlxuICogV3JhcCBgdGV4dGAgaW4gdGhlIGdpdmVuIEFOU0kgZXNjYXBlIGNvZGUsIHRoZW4gcmVzZXQuXG4gKiBGYWxscyBiYWNrIHRvIHBsYWluIHRleHQgd2hlbiB0aGUgdGVybWluYWwgZG9lcyBub3Qgc3VwcG9ydCBjb2xvcnMuXG4gKiBAcGFyYW0gdGV4dCAgLSBUaGUgc3RyaW5nIHRvIGNvbG9yaXplLlxuICogQHBhcmFtIGNvbG9yIC0gQW4gQU5TSSBlc2NhcGUgc2VxdWVuY2UgKGUuZy4gYGNvbG9ycy5yZWRgKS5cbiAqIEByZXR1cm5zIFRoZSBjb2xvcml6ZWQgc3RyaW5nLCBvciBgdGV4dGAgdW5jaGFuZ2VkIHdoZW4gY29sb3JzIGFyZSB1bnN1cHBvcnRlZC5cbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIGNvbG9yaXplKHRleHQ6IHN0cmluZywgY29sb3I6IHN0cmluZyk6IHN0cmluZyB7XG5cdGlmICghc3VwcG9ydHNDb2xvcigpKSB7XG5cdFx0cmV0dXJuIHRleHQ7XG5cdH1cblx0cmV0dXJuIGAke2NvbG9yfSR7dGV4dH0ke2NvbG9ycy5yZXNldH1gO1xufVxuXG5leHBvcnQgZGVmYXVsdCBjb2xvcnM7XG4iXSwibWFwcGluZ3MiOiI7O0FBQUE7Ozs7OztBQUFBO0FBQUEsU0FBQUEsZUFBQTtFQUFBLElBQUFDLElBQUE7RUFBQSxJQUFBQyxJQUFBO0VBQUEsSUFBQUMsTUFBQSxPQUFBQyxRQUFBO0VBQUEsSUFBQUMsR0FBQTtFQUFBLElBQUFDLFlBQUE7SUFBQUwsSUFBQTtJQUFBTSxZQUFBO01BQUE7UUFBQUMsS0FBQTtVQUFBQyxJQUFBO1VBQUFDLE1BQUE7UUFBQTtRQUFBQyxHQUFBO1VBQUFGLElBQUE7VUFBQUMsTUFBQTtRQUFBO01BQUE7TUFBQTtRQUFBRixLQUFBO1VBQUFDLElBQUE7VUFBQUMsTUFBQTtRQUFBO1FBQUFDLEdBQUE7VUFBQUYsSUFBQTtVQUFBQyxNQUFBO1FBQUE7TUFBQTtNQUFBO1FBQUFGLEtBQUE7VUFBQUMsSUFBQTtVQUFBQyxNQUFBO1FBQUE7UUFBQUMsR0FBQTtVQUFBRixJQUFBO1VBQUFDLE1BQUE7UUFBQTtNQUFBO01BQUE7UUFBQUYsS0FBQTtVQUFBQyxJQUFBO1VBQUFDLE1BQUE7UUFBQTtRQUFBQyxHQUFBO1VBQUFGLElBQUE7VUFBQUMsTUFBQTtRQUFBO01BQUE7TUFBQTtRQUFBRixLQUFBO1VBQUFDLElBQUE7VUFBQUMsTUFBQTtRQUFBO1FBQUFDLEdBQUE7VUFBQUYsSUFBQTtVQUFBQyxNQUFBO1FBQUE7TUFBQTtNQUFBO1FBQUFGLEtBQUE7VUFBQUMsSUFBQTtVQUFBQyxNQUFBO1FBQUE7UUFBQUMsR0FBQTtVQUFBRixJQUFBO1VBQUFDLE1BQUE7UUFBQTtNQUFBO01BQUE7UUFBQUYsS0FBQTtVQUFBQyxJQUFBO1VBQUFDLE1BQUE7UUFBQTtRQUFBQyxHQUFBO1VBQUFGLElBQUE7VUFBQUMsTUFBQTtRQUFBO01BQUE7TUFBQTtRQUFBRixLQUFBO1VBQUFDLElBQUE7VUFBQUMsTUFBQTtRQUFBO1FBQUFDLEdBQUE7VUFBQUYsSUFBQTtVQUFBQyxNQUFBO1FBQUE7TUFBQTtNQUFBO1FBQUFGLEtBQUE7VUFBQUMsSUFBQTtVQUFBQyxNQUFBO1FBQUE7UUFBQUMsR0FBQTtVQUFBRixJQUFBO1VBQUFDLE1BQUE7UUFBQTtNQUFBO01BQUE7UUFBQUYsS0FBQTtVQUFBQyxJQUFBO1VBQUFDLE1BQUE7UUFBQTtRQUFBQyxHQUFBO1VBQUFGLElBQUE7VUFBQUMsTUFBQTtRQUFBO01BQUE7SUFBQTtJQUFBRSxLQUFBO01BQUE7UUFBQUMsSUFBQTtRQUFBQyxJQUFBO1VBQUFOLEtBQUE7WUFBQUMsSUFBQTtZQUFBQyxNQUFBO1VBQUE7VUFBQUMsR0FBQTtZQUFBRixJQUFBO1lBQUFDLE1BQUE7VUFBQTtRQUFBO1FBQUFLLEdBQUE7VUFBQVAsS0FBQTtZQUFBQyxJQUFBO1lBQUFDLE1BQUE7VUFBQTtVQUFBQyxHQUFBO1lBQUFGLElBQUE7WUFBQUMsTUFBQTtVQUFBO1FBQUE7UUFBQUQsSUFBQTtNQUFBO01BQUE7UUFBQUksSUFBQTtRQUFBQyxJQUFBO1VBQUFOLEtBQUE7WUFBQUMsSUFBQTtZQUFBQyxNQUFBO1VBQUE7VUFBQUMsR0FBQTtZQUFBRixJQUFBO1lBQUFDLE1BQUE7VUFBQTtRQUFBO1FBQUFLLEdBQUE7VUFBQVAsS0FBQTtZQUFBQyxJQUFBO1lBQUFDLE1BQUE7VUFBQTtVQUFBQyxHQUFBO1lBQUFGLElBQUE7WUFBQUMsTUFBQTtVQUFBO1FBQUE7UUFBQUQsSUFBQTtNQUFBO0lBQUE7SUFBQU8sU0FBQTtNQUFBO1FBQUFELEdBQUE7VUFBQVAsS0FBQTtZQUFBQyxJQUFBO1lBQUFDLE1BQUE7VUFBQTtVQUFBQyxHQUFBO1lBQUFGLElBQUE7WUFBQUMsTUFBQTtVQUFBO1FBQUE7UUFBQU8sSUFBQTtRQUFBQyxTQUFBO1VBQUFWLEtBQUE7WUFBQUMsSUFBQTtZQUFBQyxNQUFBO1VBQUE7VUFBQUMsR0FBQTtZQUFBRixJQUFBO1lBQUFDLE1BQUE7VUFBQTtRQUFBO1VBQUFGLEtBQUE7WUFBQUMsSUFBQTtZQUFBQyxNQUFBO1VBQUE7VUFBQUMsR0FBQTtZQUFBRixJQUFBO1lBQUFDLE1BQUE7VUFBQTtRQUFBO1VBQUFGLEtBQUE7WUFBQUMsSUFBQTtZQUFBQyxNQUFBO1VBQUE7VUFBQUMsR0FBQTtZQUFBRixJQUFBO1lBQUFDLE1BQUE7VUFBQTtRQUFBO1FBQUFELElBQUE7TUFBQTtNQUFBO1FBQUFNLEdBQUE7VUFBQVAsS0FBQTtZQUFBQyxJQUFBO1lBQUFDLE1BQUE7VUFBQTtVQUFBQyxHQUFBO1lBQUFGLElBQUE7WUFBQUMsTUFBQTtVQUFBO1FBQUE7UUFBQU8sSUFBQTtRQUFBQyxTQUFBO1VBQUFWLEtBQUE7WUFBQUMsSUFBQTtZQUFBQyxNQUFBO1VBQUE7VUFBQUMsR0FBQTtZQUFBRixJQUFBO1lBQUFDLE1BQUE7VUFBQTtRQUFBO1VBQUFGLEtBQUE7WUFBQUMsSUFBQSxFQUFBVSxTQUFBO1lBQUFULE1BQUEsRUFBQVM7VUFBQTtVQUFBUixHQUFBO1lBQUFGLElBQUEsRUFBQVUsU0FBQTtZQUFBVCxNQUFBLEVBQUFTO1VBQUE7UUFBQTtRQUFBVixJQUFBO01BQUE7SUFBQTtJQUFBVyxDQUFBO01BQUE7TUFBQTtNQUFBO01BQUE7TUFBQTtNQUFBO01BQUE7TUFBQTtNQUFBO01BQUE7SUFBQTtJQUFBQyxDQUFBO01BQUE7TUFBQTtJQUFBO0lBQUFDLENBQUE7TUFBQTtNQUFBO0lBQUE7SUFBQUMsY0FBQTtNQUFBQyxJQUFBO01BQUFDLFFBQUE7TUFBQUMsS0FBQTtNQUFBQyxPQUFBO01BQUFDLGNBQUE7TUFBQUMsT0FBQTtJQUFBO0lBQUFDLGVBQUE7SUFBQTVCLElBQUE7RUFBQTtFQUFBLElBQUE2QixRQUFBLEdBQUE1QixNQUFBLENBQUFFLEdBQUEsTUFBQUYsTUFBQSxDQUFBRSxHQUFBO0VBQUEsS0FBQTBCLFFBQUEsQ0FBQTlCLElBQUEsS0FBQThCLFFBQUEsQ0FBQTlCLElBQUEsRUFBQUMsSUFBQSxLQUFBQSxJQUFBO0lBQUE2QixRQUFBLENBQUE5QixJQUFBLElBQUFLLFlBQUE7RUFBQTtFQUFBLElBQUEwQixjQUFBLEdBQUFELFFBQUEsQ0FBQTlCLElBQUE7RUFBQTtJQVdPO0lBQUFELGNBQUEsWUFBQUEsQ0FBQTtNQUFBLE9BQUFnQyxjQUFBO0lBQUE7RUFBQTtFQUFBLE9BQUFBLGNBQUE7QUFBQTtBQUFBaEMsY0FBQTtBQUFBQSxjQUFBLEdBQUFvQixDQUFBOzs7Ozs7Ozs7QUE2QlBhLE9BQUEsQ0FBQUMsYUFBQSxHQUFBQSxhQUFBO0FBTUM7QUFBQWxDLGNBQUEsR0FBQW9CLENBQUE7QUFTRGEsT0FBQSxDQUFBRSxRQUFBLEdBQUFBLFFBQUE7QUFoREE7QUFBQTtBQUFBbkMsY0FBQSxHQUFBb0IsQ0FBQTtBQUNhYSxPQUFBLENBQUFHLE1BQU0sR0FBRztFQUNyQjtFQUNBQyxLQUFLLEVBQUUsU0FBUztFQUNoQkMsSUFBSSxFQUFFLFNBQVM7RUFDZkMsR0FBRyxFQUFFLFNBQVM7RUFFZDtFQUNBQyxLQUFLLEVBQUUsVUFBVTtFQUNqQkMsR0FBRyxFQUFFLFVBQVU7RUFDZkMsS0FBSyxFQUFFLFVBQVU7RUFDakJDLE1BQU0sRUFBRSxVQUFVO0VBQ2xCQyxJQUFJLEVBQUUsVUFBVTtFQUNoQkMsT0FBTyxFQUFFLFVBQVU7RUFDbkJDLElBQUksRUFBRSxVQUFVO0VBQ2hCQyxLQUFLLEVBQUUsVUFBVTtFQUVqQjtFQUNBQyxTQUFTLEVBQUUsVUFBVTtFQUNyQkMsV0FBVyxFQUFFLFVBQVU7RUFDdkJDLFlBQVksRUFBRSxVQUFVO0VBQ3hCQyxVQUFVLEVBQUUsVUFBVTtFQUN0QkMsYUFBYSxFQUFFLFVBQVU7RUFDekJDLFVBQVUsRUFBRSxVQUFVO0VBQ3RCQyxXQUFXLEVBQUU7Q0FDSjtBQUlWOzs7O0FBSUEsU0FBZ0JwQixhQUFhQSxDQUFBO0VBQUE7RUFBQWxDLGNBQUEsR0FBQXFCLENBQUE7RUFBQXJCLGNBQUEsR0FBQW9CLENBQUE7RUFDNUIsT0FDQywyQkFBQXBCLGNBQUEsR0FBQXNCLENBQUEsVUFBQWlDLE9BQU8sQ0FBQ0MsTUFBTSxDQUFDQyxLQUFLLEtBQUssSUFBSTtFQUFBO0VBQUEsQ0FBQXpELGNBQUEsR0FBQXNCLENBQUEsVUFDN0JpQyxPQUFPLENBQUNHLEdBQUcsQ0FBQyxNQUFNLENBQUMsS0FBSyxNQUFNO0VBQUE7RUFBQSxDQUFBMUQsY0FBQSxHQUFBc0IsQ0FBQSxVQUM5QixDQUFDaUMsT0FBTyxDQUFDRyxHQUFHLENBQUMsVUFBVSxDQUFDO0FBRTFCO0FBRUE7Ozs7Ozs7QUFPQSxTQUFnQnZCLFFBQVFBLENBQUN3QixJQUFZLEVBQUVDLEtBQWE7RUFBQTtFQUFBNUQsY0FBQSxHQUFBcUIsQ0FBQTtFQUFBckIsY0FBQSxHQUFBb0IsQ0FBQTtFQUNuRCxJQUFJLENBQUNjLGFBQWEsRUFBRSxFQUFFO0lBQUE7SUFBQWxDLGNBQUEsR0FBQXNCLENBQUE7SUFBQXRCLGNBQUEsR0FBQW9CLENBQUE7SUFDckIsT0FBT3VDLElBQUk7RUFDWixDQUFDO0VBQUE7RUFBQTtJQUFBM0QsY0FBQSxHQUFBc0IsQ0FBQTtFQUFBO0VBQUF0QixjQUFBLEdBQUFvQixDQUFBO0VBQ0QsT0FBTyxHQUFHd0MsS0FBSyxHQUFHRCxJQUFJLEdBQUcxQixPQUFBLENBQUFHLE1BQU0sQ0FBQ0MsS0FBSyxFQUFFO0FBQ3hDO0FBQUM7QUFBQXJDLGNBQUEsR0FBQW9CLENBQUE7QUFFRGEsT0FBQSxDQUFBNEIsT0FBQSxHQUFlNUIsT0FBQSxDQUFBRyxNQUFNIiwiaWdub3JlTGlzdCI6W119
