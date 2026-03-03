@@ -57,31 +57,20 @@ describe('Logger constructor', () => {
 describe('Logger._format', () => {
 	const l = new Logger({ prefix: '[P]' });
 
-	it('formats debug messages with [DEBUG]', () => {
-		const result = stripAnsi(l._format('msg', 'debug'));
-		expect(result).toContain('[DEBUG]');
-		expect(result).toContain('msg');
+	it.each([
+		['debug', 'msg', '[DEBUG]'],
+		['success', 'ok', '✓'],
+		['warn', 'careful', '⚠'],
+		['error', 'fail', '✗'],
+	] as [string, string, string][])('formats %s messages with marker %s', (level, msg, marker) => {
+		const result = stripAnsi(l._format(msg, level));
+		expect(result).toContain(marker);
 	});
 
-	it('formats info messages with prefix', () => {
+	it('formats info messages with prefix and message', () => {
 		const result = stripAnsi(l._format('hello', 'info'));
 		expect(result).toContain('[P]');
 		expect(result).toContain('hello');
-	});
-
-	it('formats success messages with ✓', () => {
-		const result = stripAnsi(l._format('ok', 'success'));
-		expect(result).toContain('✓');
-	});
-
-	it('formats warn messages with ⚠', () => {
-		const result = stripAnsi(l._format('careful', 'warn'));
-		expect(result).toContain('⚠');
-	});
-
-	it('formats error messages with ✗', () => {
-		const result = stripAnsi(l._format('fail', 'error'));
-		expect(result).toContain('✗');
 	});
 
 	it('returns plain message for unknown level', () => {

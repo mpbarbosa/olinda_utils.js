@@ -15,41 +15,61 @@ import {
 // ─── String Utilities ────────────────────────────────────────────────────────
 
 describe('camelCase', () => {
-	it('converts kebab-case', () => expect(camelCase('hello-world')).toBe('helloWorld'));
-	it('converts snake_case', () => expect(camelCase('hello_world')).toBe('helloWorld'));
-	it('converts spaces', () => expect(camelCase('hello world')).toBe('helloWorld'));
-	it('lowercases initial capital', () => expect(camelCase('HelloWorld')).toBe('helloWorld'));
+	it.each([
+		['hello-world', 'helloWorld'],
+		['hello_world', 'helloWorld'],
+		['hello world', 'helloWorld'],
+		['HelloWorld', 'helloWorld'],
+	] as [string, string][])('converts %s → %s', (input, expected) => {
+		expect(camelCase(input)).toBe(expected);
+	});
 	it('returns \'\' for non-string', () => { expect(camelCase(null)).toBe(''); expect(camelCase(123)).toBe(''); });
 });
 
 describe('kebabCase', () => {
-	it('converts camelCase', () => expect(kebabCase('helloWorld')).toBe('hello-world'));
-	it('converts snake_case', () => expect(kebabCase('hello_world')).toBe('hello-world'));
-	it('converts spaces', () => expect(kebabCase('hello world')).toBe('hello-world'));
+	it.each([
+		['helloWorld', 'hello-world'],
+		['hello_world', 'hello-world'],
+		['hello world', 'hello-world'],
+	] as [string, string][])('converts %s → %s', (input, expected) => {
+		expect(kebabCase(input)).toBe(expected);
+	});
 	it('strips special characters', () => expect(kebabCase('hello@world!')).toBe('helloworld'));
 	it('returns \'\' for non-string', () => expect(kebabCase(null)).toBe(''));
 });
 
 describe('snakeCase', () => {
-	it('converts camelCase', () => expect(snakeCase('helloWorld')).toBe('hello_world'));
-	it('converts kebab-case', () => expect(snakeCase('hello-world')).toBe('hello_world'));
-	it('converts spaces', () => expect(snakeCase('hello world')).toBe('hello_world'));
+	it.each([
+		['helloWorld', 'hello_world'],
+		['hello-world', 'hello_world'],
+		['hello world', 'hello_world'],
+	] as [string, string][])('converts %s → %s', (input, expected) => {
+		expect(snakeCase(input)).toBe(expected);
+	});
 	it('strips special characters', () => expect(snakeCase('hello@world!')).toBe('helloworld'));
 	it('returns \'\' for non-string', () => expect(snakeCase(null)).toBe(''));
 });
 
 describe('pascalCase', () => {
-	it('converts camelCase', () => expect(pascalCase('helloWorld')).toBe('HelloWorld'));
-	it('converts kebab-case', () => expect(pascalCase('hello-world')).toBe('HelloWorld'));
-	it('converts snake_case', () => expect(pascalCase('hello_world')).toBe('HelloWorld'));
+	it.each([
+		['helloWorld', 'HelloWorld'],
+		['hello-world', 'HelloWorld'],
+		['hello_world', 'HelloWorld'],
+	] as [string, string][])('converts %s → %s', (input, expected) => {
+		expect(pascalCase(input)).toBe(expected);
+	});
 	it('returns \'\' for non-string', () => expect(pascalCase(null)).toBe(''));
 });
 
 describe('capitalize', () => {
-	it('capitalizes first letter', () => expect(capitalize('hello')).toBe('Hello'));
-	it('preserves already capitalized', () => expect(capitalize('Hello')).toBe('Hello'));
-	it('returns \'\' for empty string', () => expect(capitalize('')).toBe(''));
-	it('returns \'\' for non-string', () => expect(capitalize(null)).toBe(''));
+	it.each([
+		['hello', 'Hello'],
+		['Hello', 'Hello'],
+		['', ''],
+		[null, ''],
+	] as [string | null, string][])('capitalizes %s → %s', (input, expected) => {
+		expect(capitalize(input)).toBe(expected);
+	});
 });
 
 describe('truncate', () => {

@@ -33,6 +33,12 @@ describe('supportsColor', () => {
 	const originalTERM = process.env['TERM'];
 	const originalNO_COLOR = process.env['NO_COLOR'];
 
+	beforeEach(() => {
+		Object.defineProperty(process.stdout, 'isTTY', { value: true, configurable: true });
+		delete process.env['TERM'];
+		delete process.env['NO_COLOR'];
+	});
+
 	afterEach(() => {
 		Object.defineProperty(process.stdout, 'isTTY', { value: originalIsTTY, configurable: true });
 		if (originalTERM === undefined) {
@@ -48,28 +54,20 @@ describe('supportsColor', () => {
 	});
 
 	it('returns true when isTTY and no restrictions', () => {
-		Object.defineProperty(process.stdout, 'isTTY', { value: true, configurable: true });
-		delete process.env['TERM'];
-		delete process.env['NO_COLOR'];
 		expect(supportsColor()).toBe(true);
 	});
 
 	it('returns false when isTTY is false', () => {
 		Object.defineProperty(process.stdout, 'isTTY', { value: false, configurable: true });
-		delete process.env['NO_COLOR'];
 		expect(supportsColor()).toBe(false);
 	});
 
 	it('returns false when TERM=dumb', () => {
-		Object.defineProperty(process.stdout, 'isTTY', { value: true, configurable: true });
 		process.env['TERM'] = 'dumb';
-		delete process.env['NO_COLOR'];
 		expect(supportsColor()).toBe(false);
 	});
 
 	it('returns false when NO_COLOR is set', () => {
-		Object.defineProperty(process.stdout, 'isTTY', { value: true, configurable: true });
-		delete process.env['TERM'];
 		process.env['NO_COLOR'] = '1';
 		expect(supportsColor()).toBe(false);
 	});
@@ -78,16 +76,12 @@ describe('supportsColor', () => {
 	// "not set" and allows colour. Documents a deliberate deviation from the
 	// strict NO_COLOR spec (which says "when present, regardless of value").
 	it('returns true when NO_COLOR is empty string (implementation treats as unset)', () => {
-		Object.defineProperty(process.stdout, 'isTTY', { value: true, configurable: true });
-		delete process.env['TERM'];
 		process.env['NO_COLOR'] = '';
 		expect(supportsColor()).toBe(true);
 	});
 
 	it('returns false when isTTY is undefined (non-TTY stream)', () => {
 		Object.defineProperty(process.stdout, 'isTTY', { value: undefined, configurable: true });
-		delete process.env['TERM'];
-		delete process.env['NO_COLOR'];
 		expect(supportsColor()).toBe(false);
 	});
 });
