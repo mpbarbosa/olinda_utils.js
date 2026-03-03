@@ -3,7 +3,7 @@
  * @module core/utils
  * @description Pure utility functions for strings, arrays, and objects.
  * All functions are referentially transparent — no side effects, deterministic output.
- * @since 0.3.0
+ * @since 0.3.1
  */
 
 // ─── String Utilities ────────────────────────────────────────────────────────
