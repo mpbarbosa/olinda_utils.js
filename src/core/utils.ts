@@ -249,6 +249,11 @@ export function partition<T>(arr: unknown, predicate: (item: T) => boolean): [T[
 
 // ─── Object Utilities ─────────────────────────────────────────────────────────
 
+/** Returns true when `val` is a non-null, non-array plain object. */
+function isPlainObj(val: unknown): val is Record<string, unknown> {
+	return val !== null && typeof val === 'object' && !Array.isArray(val);
+}
+
 /**
  * Create a deep clone of any value.
  * Handles plain objects, arrays, and `Date` instances.
@@ -279,21 +284,21 @@ export function deepMerge(target: Record<string, unknown>, ...sources: Record<st
 	if (!sources.length) return target;
 	const result = deepClone(target);
 	for (const source of sources) {
-		if (source && typeof source === 'object' && !Array.isArray(source)) {
-			for (const key in source) {
-				if (Object.prototype.hasOwnProperty.call(source, key)) {
-					const sv = source[key];
-					const rv = result[key];
-					if (sv && typeof sv === 'object' && !Array.isArray(sv)) {
-						result[key] = deepMerge((rv && typeof rv === 'object' ? rv : {}) as Record<string, unknown>, sv as Record<string, unknown>);
-					} else {
-						result[key] = deepClone(sv);
-					}
-				}
-			}
-		}
+		if (isPlainObj(source)) mergeSource(result, source);
 	}
 	return result;
+}
+
+/** Merge a single `source` object into the mutable `result` in place. */
+function mergeSource(result: Record<string, unknown>, source: Record<string, unknown>): void {
+	for (const key in source) {
+		if (!Object.prototype.hasOwnProperty.call(source, key)) continue;
+		const sv = source[key];
+		const rv = result[key];
+		result[key] = isPlainObj(sv)
+			? deepMerge(isPlainObj(rv) ? rv : {}, sv)
+			: deepClone(sv);
+	}
 }
 
 /**
@@ -402,16 +407,24 @@ export function hasProperty(obj: unknown, path: string): boolean {
  */
 export function deepEqual(a: unknown, b: unknown): boolean {
 	if (a === b) return true;
-	if (a === null || b === null || typeof a !== 'object' || typeof b !== 'object') return false;
+	if (!areBothObjects(a, b)) return false;
 	if (a instanceof Date && b instanceof Date) return a.getTime() === b.getTime();
-	if (Array.isArray(a) && Array.isArray(b)) {
-		if (a.length !== b.length) return false;
-		return a.every((item, i) => deepEqual(item, b[i]));
-	}
-	if (Array.isArray(a) || Array.isArray(b)) return false;
-	const ka = Object.keys(a as object), kb = Object.keys(b as object);
-	if (ka.length !== kb.length) return false;
-	return ka.every((k) => kb.includes(k) && deepEqual((a as Record<string, unknown>)[k], (b as Record<string, unknown>)[k]));
+	if (Array.isArray(a)) return Array.isArray(b) && equalArrays(a, b);
+	if (Array.isArray(b)) return false;
+	return equalObjects(a as Record<string, unknown>, b as Record<string, unknown>);
+}
+
+function areBothObjects(a: unknown, b: unknown): boolean {
+	return a !== null && b !== null && typeof a === 'object' && typeof b === 'object';
+}
+
+function equalArrays(a: unknown[], b: unknown[]): boolean {
+	return a.length === b.length && a.every((item, i) => deepEqual(item, b[i]));
+}
+
+function equalObjects(a: Record<string, unknown>, b: Record<string, unknown>): boolean {
+	const ka = Object.keys(a), kb = Object.keys(b);
+	return ka.length === kb.length && ka.every((k) => kb.includes(k) && deepEqual(a[k], b[k]));
 }
 
 /**
