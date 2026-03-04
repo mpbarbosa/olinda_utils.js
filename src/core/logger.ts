@@ -45,6 +45,7 @@ export interface LoggerOptions {
 
 /**
  * Logger class for consistent output formatting.
+ * @since 0.1.2
  */
 export class Logger {
 	quiet: boolean;
@@ -174,7 +175,10 @@ export class Logger {
 		this._writeFile(separator);
 	}
 
-	/** Log a debug message (only in verbose mode). */
+	/** Log a debug message (only in verbose mode).
+	 * @param message - Message to log.
+	 * @since 0.1.2
+	 */
 	debug(message: string): void {
 		if (this.verbose && !this.quiet) {
 			const formatted = this._format(message, 'debug');
@@ -183,7 +187,10 @@ export class Logger {
 		}
 	}
 
-	/** Log an informational message. */
+	/** Log an informational message.
+	 * @param message - Message to log.
+	 * @since 0.1.2
+	 */
 	info(message: string): void {
 		if (!this.quiet) {
 			const formatted = this._format(message, 'info');
@@ -192,7 +199,10 @@ export class Logger {
 		this._writeFile(this._format(message, 'info'));
 	}
 
-	/** Log a success message. */
+	/** Log a success message.
+	 * @param message - Message to log.
+	 * @since 0.1.2
+	 */
 	success(message: string): void {
 		if (!this.quiet) {
 			const formatted = this._format(message, 'success');
@@ -201,21 +211,33 @@ export class Logger {
 		this._writeFile(this._format(message, 'success'));
 	}
 
-	/** Log a warning message. */
+	/** Log a warning message.
+	 * @param message - Message to log.
+	 * @since 0.1.2
+	 */
 	warn(message: string): void {
 		const formatted = this._format(message, 'warn');
 		console.warn(formatted);
 		this._writeFile(formatted);
 	}
 
-	/** Log an error message. */
+	/** Log an error message.
+	 * @param message - Message to log.
+	 * @since 0.1.2
+	 */
 	error(message: string): void {
 		const formatted = this._format(message, 'error');
 		console.error(formatted);
 		this._writeFile(formatted);
 	}
 
-	/** Format a message with color and optional prefix. */
+	/**
+	 * Format a message with color and optional prefix.
+	 * @param message - The message text.
+	 * @param level - Log level key (`'debug'`, `'info'`, `'success'`, `'warn'`, `'error'`).
+	 * @returns Formatted (possibly ANSI-colored) string.
+	 * @internal
+	 */
 	_format(message: string, level: string): string {
 		const prefix = this.prefix ? `${this.prefix} ` : '';
 
@@ -238,6 +260,7 @@ export class Logger {
 	/**
 	 * Write a plain-text line to the log file (best-effort, no throw).
 	 * @param formatted - Already-formatted (possibly ANSI) string.
+	 * @internal
 	 */
 	_writeFile(formatted: string): void {
 		const timestamp = new Date().toISOString();

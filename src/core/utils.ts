@@ -254,22 +254,31 @@ function isPlainObj(val: unknown): val is Record<string, unknown> {
 	return val !== null && typeof val === 'object' && !Array.isArray(val);
 }
 
+/** Internal recursive helper for {@link deepClone} with cycle detection. */
+function _deepCloneHelper<T>(obj: T, seen: WeakSet<object>): T {
+	if (obj === null || typeof obj !== 'object') return obj;
+	if (seen.has(obj as object)) return obj; // circular ref — return original reference
+	seen.add(obj as object);
+	if (obj instanceof Date) return new Date(obj.getTime()) as unknown as T;
+	if (Array.isArray(obj)) return obj.map((item) => _deepCloneHelper(item, seen)) as unknown as T;
+	const cloned: Record<string, unknown> = {};
+	for (const key in obj) {
+		if (Object.prototype.hasOwnProperty.call(obj, key)) cloned[key] = _deepCloneHelper((obj as Record<string, unknown>)[key], seen);
+	}
+	return cloned as T;
+}
+
 /**
  * Create a deep clone of any value.
  * Handles plain objects, arrays, and `Date` instances.
+ * Circular references are detected and kept as-is (the original object reference is preserved
+ * rather than cloned again) to avoid infinite recursion.
  * @param obj - Value to clone.
  * @returns Deep clone of `obj`.
  * @example deepClone({a:{b:1}}) // {a:{b:1}} — independent copy
  */
 export function deepClone<T>(obj: T): T {
-	if (obj === null || typeof obj !== 'object') return obj;
-	if (obj instanceof Date) return new Date(obj.getTime()) as unknown as T;
-	if (Array.isArray(obj)) return obj.map((item) => deepClone(item)) as unknown as T;
-	const cloned: Record<string, unknown> = {};
-	for (const key in obj) {
-		if (Object.prototype.hasOwnProperty.call(obj, key)) cloned[key] = deepClone((obj as Record<string, unknown>)[key]);
-	}
-	return cloned as T;
+	return _deepCloneHelper(obj, new WeakSet());
 }
 
 /**

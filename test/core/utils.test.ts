@@ -208,6 +208,16 @@ describe('deepClone', () => {
 		expect(deepClone(42)).toBe(42);
 		expect(deepClone('test')).toBe('test');
 	});
+	it('handles circular references without throwing', () => {
+		type Circular = { self?: Circular; value: number };
+		const obj: Circular = { value: 1 };
+		obj.self = obj; // circular reference
+		expect(() => deepClone(obj)).not.toThrow();
+		const clone = deepClone(obj);
+		expect(clone.value).toBe(1);
+		// circular ref node is kept as original reference, not cloned
+		expect(clone.self).toBe(obj);
+	});
 });
 
 describe('deepMerge', () => {

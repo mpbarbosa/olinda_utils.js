@@ -248,6 +248,29 @@ describe('Logger.step()', () => {
 		expect(logSpy).not.toHaveBeenCalled();
 	});
 
+	it('should log plain separator when color is not supported', () => {
+		Object.defineProperty(process.stdout, 'isTTY', { value: false, configurable: true });
+		const l = new Logger({ quiet: false });
+		l.step('Plain Step');
+		expect(logSpy).toHaveBeenCalled();
+		// output should not contain ANSI escape codes
+		const calls = logSpy.mock.calls.flat().join('');
+		expect(calls).not.toMatch(/\x1B\[/);
+		Object.defineProperty(process.stdout, 'isTTY', { value: undefined, configurable: true });
+	});
+
+	it('should log ANSI-colored separator when color is supported', () => {
+		Object.defineProperty(process.stdout, 'isTTY', { value: true, configurable: true });
+		delete process.env['TERM'];
+		delete process.env['NO_COLOR'];
+		const l = new Logger({ quiet: false });
+		l.step('Color Step');
+		expect(logSpy).toHaveBeenCalled();
+		const calls = logSpy.mock.calls.flat().join('');
+		expect(calls).toMatch(/\x1B\[/);
+		Object.defineProperty(process.stdout, 'isTTY', { value: undefined, configurable: true });
+	});
+
 	it('should write step header to file even when quiet', async () => {
 		const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'step-test-'));
 		const logFile = path.join(tmpDir, 'step.log');
