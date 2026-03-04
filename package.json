@@ -1,6 +1,6 @@
 {
   "name": "olinda_utils.js",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "Public JavaScript utility library",
   "main": "dist/src/index.js",
   "types": "dist/types/src/index.d.ts",

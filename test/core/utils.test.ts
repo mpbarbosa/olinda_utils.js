@@ -1,7 +1,7 @@
 /**
  * Tests for General Utility Functions Module
  * @module test/core/utils
- * @since 0.3.7
+ * @since 0.3.8
  */
 
 import {
@@ -160,6 +160,7 @@ describe('sortBy', () => {
 		expect(items).toEqual([3, 1, 2]);
 		expect(sorted).toEqual([1, 2, 3]);
 	});
+	it('keeps stable order for equal keys', () => expect(sortBy([{ age: 25 }, { age: 20 }, { age: 25 }], 'age')).toEqual([{ age: 20 }, { age: 25 }, { age: 25 }]));
 	it('returns [] for non-array', () => expect(sortBy(null, 'key')).toEqual([]));
 });
 

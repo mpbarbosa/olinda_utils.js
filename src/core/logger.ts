@@ -94,7 +94,7 @@ export class Logger {
 			}
 			this._stepLogFilePath = filePath;
 			this._stepLogStream = fs.createWriteStream(filePath, { flags: 'a' });
-			this._stepLogStream.on('error', () => { /* best-effort */ });
+			this._stepLogStream.on('error', /* istanbul ignore next */ () => { /* best-effort */ });
 		} catch {
 			// Best-effort; do not crash the workflow
 		}
@@ -123,7 +123,7 @@ export class Logger {
 			}
 			this._logFilePath = filePath;
 			this._logStream = fs.createWriteStream(filePath, { flags: 'a' });
-			this._logStream.on('error', () => { /* best-effort */ });
+			this._logStream.on('error', /* istanbul ignore next */ () => { /* best-effort */ });
 		} catch {
 			// File logging is best-effort; do not crash the workflow
 		}
@@ -152,12 +152,12 @@ export class Logger {
 			if (this._logFilePath && this._logStream) {
 				this._logStream.end();
 				this._logStream = fs.createWriteStream(this._logFilePath, { flags: 'a' });
-				this._logStream.on('error', () => { /* best-effort */ });
+				this._logStream.on('error', /* istanbul ignore next */ () => { /* best-effort */ });
 			}
 			if (this._stepLogFilePath && this._stepLogStream) {
 				this._stepLogStream.end();
 				this._stepLogStream = fs.createWriteStream(this._stepLogFilePath, { flags: 'a' });
-				this._stepLogStream.on('error', () => { /* best-effort */ });
+				this._stepLogStream.on('error', /* istanbul ignore next */ () => { /* best-effort */ });
 			}
 		} catch {
 			// Best-effort; do not crash the workflow
