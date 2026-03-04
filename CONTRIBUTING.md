@@ -86,6 +86,26 @@ test: add negative test cases for colorize
 - [ ] JSDoc added for all new exports
 - [ ] `CHANGELOG.md` updated under `[Unreleased]`
 
+## Releasing / Deployment
+
+Releases are automated by `scripts/deploy.sh`. Maintainers with push access run:
+
+```bash
+# 1. Bump version in package.json
+npm version patch   # or minor / major
+
+# 2. Run the full release pipeline
+bash scripts/deploy.sh
+```
+
+`scripts/deploy.sh` builds TypeScript, commits `dist/`, tags the release, pushes to GitHub,
+and generates `cdn-urls.txt` via `cdn-delivery.sh`. jsDelivr picks up the version tag
+automatically and serves the library from the CDN.
+
+`scripts/colors.sh` provides shared ANSI colour output for both scripts — source it, do not execute it directly.
+
+See [docs/API.md — Automation Scripts](./docs/API.md#automation-scripts) for full usage and troubleshooting.
+
 ## Reporting Issues
 
 Open an issue at <https://github.com/mpbarbosa/olinda_utils.js/issues> with:

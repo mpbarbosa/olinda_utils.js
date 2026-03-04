@@ -1,7 +1,7 @@
 /**
  * Tests for General Utility Functions Module
  * @module test/core/utils
- * @since 0.3.6
+ * @since 0.3.7
  */
 
 import {
@@ -23,7 +23,9 @@ describe('camelCase', () => {
 	] as [string, string][])('converts %s → %s', (input, expected) => {
 		expect(camelCase(input)).toBe(expected);
 	});
-	it('returns \'\' for non-string', () => { expect(camelCase(null)).toBe(''); expect(camelCase(123)).toBe(''); });
+	it.each([null, 123] as const)('returns \'\' for non-string input %s', (input) => {
+		expect(camelCase(input)).toBe('');
+	});
 });
 
 describe('kebabCase', () => {
@@ -35,7 +37,9 @@ describe('kebabCase', () => {
 		expect(kebabCase(input)).toBe(expected);
 	});
 	it('strips special characters', () => expect(kebabCase('hello@world!')).toBe('helloworld'));
-	it('returns \'\' for non-string', () => { expect(kebabCase(null)).toBe(''); expect(kebabCase(123)).toBe(''); });
+	it.each([null, 123] as const)('returns \'\' for non-string input %s', (input) => {
+		expect(kebabCase(input)).toBe('');
+	});
 });
 
 describe('snakeCase', () => {
@@ -47,7 +51,9 @@ describe('snakeCase', () => {
 		expect(snakeCase(input)).toBe(expected);
 	});
 	it('strips special characters', () => expect(snakeCase('hello@world!')).toBe('helloworld'));
-	it('returns \'\' for non-string', () => { expect(snakeCase(null)).toBe(''); expect(snakeCase(123)).toBe(''); });
+	it.each([null, 123] as const)('returns \'\' for non-string input %s', (input) => {
+		expect(snakeCase(input)).toBe('');
+	});
 });
 
 describe('pascalCase', () => {
@@ -58,7 +64,9 @@ describe('pascalCase', () => {
 	] as [string, string][])('converts %s → %s', (input, expected) => {
 		expect(pascalCase(input)).toBe(expected);
 	});
-	it('returns \'\' for non-string', () => { expect(pascalCase(null)).toBe(''); expect(pascalCase(123)).toBe(''); });
+	it.each([null, 123] as const)('returns \'\' for non-string input %s', (input) => {
+		expect(pascalCase(input)).toBe('');
+	});
 });
 
 describe('capitalize', () => {
@@ -83,21 +91,27 @@ describe('sanitize', () => {
 	it('removes special characters', () => expect(sanitize('hello@world!')).toBe('helloworld'));
 	it('allows specified characters', () => expect(sanitize('hello-world_test', '-_')).toBe('hello-world_test'));
 	it('handles alphanumeric only', () => expect(sanitize('abc123XYZ', '')).toBe('abc123XYZ'));
-	it('returns \'\' for non-string', () => expect(sanitize(null)).toBe(''));
+	it.each([null, 123] as const)('returns \'\' for non-string input %s', (input) => {
+		expect(sanitize(input)).toBe('');
+	});
 });
 
 describe('cleanWhitespace', () => {
 	it('collapses extra spaces', () => expect(cleanWhitespace('hello    world')).toBe('hello world'));
 	it('trims edges', () => expect(cleanWhitespace('  hello world  ')).toBe('hello world'));
 	it('handles tabs and newlines', () => expect(cleanWhitespace('hello\t\nworld')).toBe('hello world'));
-	it('returns \'\' for non-string', () => expect(cleanWhitespace(null)).toBe(''));
+	it.each([null, 123] as const)('returns \'\' for non-string input %s', (input) => {
+		expect(cleanWhitespace(input)).toBe('');
+	});
 });
 
 describe('escapeRegex', () => {
 	it('escapes dot', () => expect(escapeRegex('hello.world')).toBe('hello\\.world'));
 	it('escapes multiple metacharacters', () => expect(escapeRegex('a*b+c?')).toBe('a\\*b\\+c\\?'));
 	it('escapes parens and brackets', () => expect(escapeRegex('(test)[value]')).toBe('\\(test\\)\\[value\\]'));
-	it('returns \'\' for non-string', () => expect(escapeRegex(null)).toBe(''));
+	it.each([null, 123] as const)('returns \'\' for non-string input %s', (input) => {
+		expect(escapeRegex(input)).toBe('');
+	});
 });
 
 // ─── Array Utilities ──────────────────────────────────────────────────────────
