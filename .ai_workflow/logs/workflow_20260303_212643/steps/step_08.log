@@ -1,0 +1,23 @@
+[2026-03-04T00:27:04.921Z] 
+→ Starting: Test Execution
+[2026-03-04T00:27:04.921Z] ════════════════════════════════════════════════════════════
+[2026-03-04T00:27:04.921Z] 🔷  Step 8: Test Execution
+[2026-03-04T00:27:04.921Z] ════════════════════════════════════════════════════════════
+[2026-03-04T00:27:04.928Z] Detected language: typescript
+[2026-03-04T00:27:04.928Z] Test command: npm test
+[2026-03-04T00:27:04.928Z] [DEBUG] [step_08] Running: npm test (cwd: /home/mpb/Documents/GitHub/olinda_utils.js, timeout: 300000ms)
+[2026-03-04T00:27:04.928Z] [DEBUG] [step_08] Test runner exited 1 — output length: 0 chars
+[2026-03-04T00:27:04.928Z] [DEBUG] [step_08] Output snippet: 
+[2026-03-04T00:27:04.928Z] [DEBUG] [step_08] Parsed results — passed: 0, failed: 0, skipped: 0, total: 0, suitesFailed: 0
+[2026-03-04T00:27:04.928Z] Tests: 0 passed, 0 failed, 0 skipped
+[2026-03-04T00:27:04.929Z] [DEBUG] [step_08] noTestsMessageInOutput: false, noTestsFound: false, anyFailure: true, success: false, exitCode: 1
+[2026-03-04T00:27:06.088Z] ✓ GitHub Copilot SDK initialized successfully
+[2026-03-04T00:27:07.106Z] Available Copilot models (13): claude-sonnet-4.5, claude-haiku-4.5, claude-opus-4.5, claude-sonnet-4, gemini-3-pro-preview, gpt-5.2-codex, gpt-5.2, gpt-5.1-codex-max, gpt-5.1-codex, gpt-5.1, gpt-5.1-codex-mini, gpt-5-mini, gpt-4.1
+[2026-03-04T00:27:07.156Z] [DEBUG] AI cache initialized: .ai_workflow/.ai_cache
+[2026-03-04T00:27:07.158Z] [DEBUG] Cache hit: 8b5ecb8f...
+[2026-03-04T00:27:07.162Z] [DEBUG] Cache hit: a30f3a2c...
+[2026-03-04T00:27:07.163Z] ⚠ Step 8 completed - test runner exited with code 1 (0 tests parsed — check output snippet above)
+[2026-03-04T00:27:07.163Z] ✓ Step step_08 completed in 2242ms
+[2026-03-04T00:27:07.163Z] [DEBUG] [Performance] step_08: 2.2s
+[2026-03-04T00:27:07.163Z] [DEBUG] Recorded outcome for step_08: failure
+[2026-03-04T00:27:07.163Z] ✓ Completed: Test Execution (2s)
