@@ -537,8 +537,8 @@ Starting workflow execution...
 [2026-03-03T22:54:44.757Z] [DEBUG] Prompt logged to: 2026-03-03T22-54-44-756Z_0001_devops_engineer.md
 [2026-03-03T22:54:44.760Z] [DEBUG] Response cached: bf46c2c6...
 [2026-03-03T22:54:44.760Z] AI refined bump type: patch (was: patch, confidence: high)
-[2026-03-03T22:54:44.760Z] [VERSION BUMP] previous: 0.3.1 → next: 0.3.2 (patch)
-[2026-03-03T22:54:44.760Z] ✓ New version: 0.3.1 → 0.3.2
+[2026-03-03T22:54:44.760Z] [VERSION BUMP] previous: 0.3.1 → next: 0.3.3 (patch)
+[2026-03-03T22:54:44.760Z] ✓ New version: 0.3.1 → 0.3.3
 [2026-03-03T22:54:44.760Z] Phase 3: Updating versions in files...
 [2026-03-03T22:54:44.765Z] Version scan found 11 file(s) referencing 0.3.1
 [2026-03-03T22:54:44.771Z] ✓ Updated 11 files, skipped 4, failed 0
@@ -648,3 +648,57 @@ Files updated:
 [2026-03-03T22:54:57.830Z] Changes: 6 files
 [2026-03-03T22:54:57.830Z] Inferred commit type: feat(implementation+tests)
 [2026-03-03T22:54:57.830Z] Staging all changes...
+[2026-03-03T22:54:57.849Z] [DEBUG] Force-staged .ai_workflow/ artifacts
+[2026-03-03T22:54:57.849Z] Changes staged successfully
+[2026-03-03T22:54:57.849Z] Generating commit message...
+[2026-03-03T22:54:59.406Z] ✓ GitHub Copilot SDK initialized successfully
+[2026-03-03T22:55:00.332Z] Available Copilot models (13): claude-sonnet-4.5, claude-haiku-4.5, claude-opus-4.5, claude-sonnet-4, gemini-3-pro-preview, gpt-5.2-codex, gpt-5.2, gpt-5.1-codex-max, gpt-5.1-codex, gpt-5.1, gpt-5.1-codex-mini, gpt-5-mini, gpt-4.1
+[2026-03-03T22:55:00.378Z] [DEBUG] AI cache initialized: .ai_workflow/.ai_cache
+[2026-03-03T22:55:00.402Z] [DEBUG] Cache miss: fb757dad...
+[2026-03-03T22:55:00.402Z] [DEBUG] Request Options: {"model":"gpt-4.1","temperature":0.7,"maxTokens":4000,"stream":false,"persona":"git_specialist","cache":true}
+[2026-03-03T22:55:00.402Z] [DEBUG] Persona: git_specialist
+[2026-03-03T22:55:00.402Z] [DEBUG] Model: gpt-4.1
+[2026-03-03T22:55:00.402Z] [AI] SDK call starting — persona: git_specialist, model: gpt-4.1, prompt_chars: 8326
+[2026-03-03T22:55:00.402Z] [DEBUG] Executing AI request (attempt 1/3)
+[2026-03-03T22:55:00.402Z] [DEBUG] AiHelper._sendRequest called
+[2026-03-03T22:55:00.402Z] [Copilot SDK] Calling sendMessage — model: gpt-4.1, prompt_length: 8326 chars
+[2026-03-03T22:55:00.402Z] [DEBUG] Sending prompt...
+[2026-03-03T22:55:05.004Z] [Copilot SDK] sendAndWait returned — model: gpt-4.1
+[2026-03-03T22:55:05.004Z] [AI] SDK call completed — persona: git_specialist, model: gpt-4.1, response_chars: 548, latency: 4602ms
+[2026-03-03T22:55:05.004Z] ✓ AI request completed successfully
+[2026-03-03T22:55:05.005Z] [DEBUG] Prompt logged to: 2026-03-03T22-55-05-005Z_0001_git_specialist.md
+[2026-03-03T22:55:05.007Z] [DEBUG] Response cached: fb757dad...
+[2026-03-03T22:55:05.007Z] AI commit message generated
+[2026-03-03T22:55:05.007Z] Creating commit...
+[2026-03-03T22:55:05.025Z] Changes committed successfully
+[2026-03-03T22:55:05.031Z] Tagged release: v0.3.3
+[2026-03-03T22:55:07.281Z] Pushed tag v0.3.3 to remote
+[2026-03-03T22:55:07.281Z] Pushing to origin/main...
+[2026-03-03T22:55:10.862Z] Successfully pushed to remote
+[2026-03-03T22:55:10.864Z] ✓ Step step_12 completed in 13056ms
+[2026-03-03T22:55:10.864Z] [DEBUG] [Performance] step_12: 13.1s
+[2026-03-03T22:55:10.864Z] ⚠ [WARNING] Operation 'step_12' took 13.1s (memory: 22.29MB)
+[2026-03-03T22:55:10.864Z] [DEBUG] Recorded outcome for step_12: success
+[2026-03-03T22:55:10.864Z] ✓ Completed: Git Finalization (13s)
+[2026-03-03T22:55:10.864Z] ✓ Workflow completed in 97880ms
+[2026-03-03T22:55:10.864Z] Results: 25/25 steps succeeded
+[2026-03-03T22:55:10.866Z] Checkpoint saved: workflow_1772578412973-1772578510865
+[2026-03-03T22:55:11.231Z] 
+Generating workflow summary...
+[2026-03-03T22:55:11.232Z] ════════════════════════════════════════════════════════════
+[2026-03-03T22:55:11.232Z] 🔷  Step 17: Workflow Summary
+[2026-03-03T22:55:11.232Z] ════════════════════════════════════════════════════════════
+[2026-03-03T22:55:11.232Z] Generating workflow summary report...
+[2026-03-03T22:55:11.232Z] ⚠ Could not read metrics file: ENOENT: no such file or directory, open '/home/mpb/Documents/GitHub/olinda_utils.js/.ai_workflow/metrics/current_run.json'
+[2026-03-03T22:55:11.232Z] Summary report written to: /home/mpb/Documents/GitHub/olinda_utils.js/.ai_workflow/summaries/workflow_20260303_195332/workflow_summary.md
+[2026-03-03T22:55:11.232Z] ✓ Workflow summary generated successfully
+[2026-03-03T22:55:11.232Z] [DEBUG] [Performance] workflow_total: 1m 38s
+[2026-03-03T22:55:11.232Z] [DEBUG] [Performance] Total workflow: 1m 38s
+[2026-03-03T22:55:11.232Z] 
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-03-03T22:55:11.232Z] ✓ Workflow completed successfully
+[2026-03-03T22:55:11.232Z] Duration: 98s
+[2026-03-03T22:55:11.232Z] Steps: 25/25 succeeded
+[2026-03-03T22:55:11.232Z] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[2026-03-03T22:55:11.233Z] [DEBUG] [CommitHistory] Saved hash=432e48fa054fefbdba90b40ab559329693b0476a runId=workflow_1772578412973
