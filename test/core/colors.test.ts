@@ -92,10 +92,12 @@ describe('supportsColor', () => {
 // ─── colorize ────────────────────────────────────────────────────────────────
 
 describe('colorize', () => {
+	const originalIsTTY = process.stdout.isTTY;
+
 	beforeEach(resetColorEnv);
 
 	afterEach(() => {
-		Object.defineProperty(process.stdout, 'isTTY', { value: undefined, configurable: true });
+		Object.defineProperty(process.stdout, 'isTTY', { value: originalIsTTY, configurable: true });
 	});
 
 	it('wraps text with color code and reset when colors supported', () => {

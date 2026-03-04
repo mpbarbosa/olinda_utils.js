@@ -1,7 +1,7 @@
 /**
  * Tests for General Utility Functions Module
  * @module test/core/utils
- * @since 0.3.5
+ * @since 0.3.6
  */
 
 import {
@@ -35,7 +35,7 @@ describe('kebabCase', () => {
 		expect(kebabCase(input)).toBe(expected);
 	});
 	it('strips special characters', () => expect(kebabCase('hello@world!')).toBe('helloworld'));
-	it('returns \'\' for non-string', () => expect(kebabCase(null)).toBe(''));
+	it('returns \'\' for non-string', () => { expect(kebabCase(null)).toBe(''); expect(kebabCase(123)).toBe(''); });
 });
 
 describe('snakeCase', () => {
@@ -47,7 +47,7 @@ describe('snakeCase', () => {
 		expect(snakeCase(input)).toBe(expected);
 	});
 	it('strips special characters', () => expect(snakeCase('hello@world!')).toBe('helloworld'));
-	it('returns \'\' for non-string', () => expect(snakeCase(null)).toBe(''));
+	it('returns \'\' for non-string', () => { expect(snakeCase(null)).toBe(''); expect(snakeCase(123)).toBe(''); });
 });
 
 describe('pascalCase', () => {
@@ -58,7 +58,7 @@ describe('pascalCase', () => {
 	] as [string, string][])('converts %s → %s', (input, expected) => {
 		expect(pascalCase(input)).toBe(expected);
 	});
-	it('returns \'\' for non-string', () => expect(pascalCase(null)).toBe(''));
+	it('returns \'\' for non-string', () => { expect(pascalCase(null)).toBe(''); expect(pascalCase(123)).toBe(''); });
 });
 
 describe('capitalize', () => {

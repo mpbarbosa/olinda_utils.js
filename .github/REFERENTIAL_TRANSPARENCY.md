@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-- [What is Referential Transparency?](#what-is-referential-transparency)
+- [What is Referential Transparency](#what-is-referential-transparency)
 - [Why It Matters](#why-it-matters)
 - [Pure vs Impure Functions](#pure-vs-impure-functions)
 - [Best Practices](#best-practices)
@@ -10,7 +10,7 @@
 - [Common Pitfalls](#common-pitfalls)
 - [Resources](#resources)
 
-## What is Referential Transparency?
+## What is Referential Transparency
 
 **Referential transparency** is a property of functions where an expression can be replaced with its resulting value without changing the program's behavior. A function is referentially transparent if:
 
