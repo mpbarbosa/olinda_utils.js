@@ -16,7 +16,7 @@ The easiest way to use `olinda_utils.js` in a browser is via jsDelivr:
 ```html
 <script type="module">
   import { colors, colorize, Logger, logger } from
-    'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.6/dist/src/index.js';
+    'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.7/dist/src/index.js';
 
   logger.info('olinda_utils.js loaded');
 </script>
@@ -59,7 +59,7 @@ import { colors, colorize, Logger, logger, LogLevel, stripAnsi } from 'olinda_ut
 ```javascript
 // CDN (browser ES module)
 import { colors, colorize } from
-  'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.6/dist/src/index.js';
+  'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.7/dist/src/index.js';
 
 // Node.js (after build or GitHub install)
 import { colors, colorize, supportsColor } from 'olinda_utils.js';
@@ -129,6 +129,45 @@ import { stripAnsi } from 'olinda_utils.js';
 
 const plain = stripAnsi('\x1B[32mhello\x1B[0m'); // → 'hello'
 ```
+
+## Automation Scripts
+
+Three shell scripts handle building, deployment, and CDN URL generation.
+
+### `cdn-delivery.sh`
+
+Generates jsDelivr CDN URLs for the current version and saves them to `cdn-urls.txt`.
+
+```bash
+bash cdn-delivery.sh
+# or via npm (runs build first):
+npm run cdn
+```
+
+**Prerequisites:** Node.js ≥ 18, `git`, `curl` (optional — CDN availability check).
+
+### `scripts/deploy.sh`
+
+Full release pipeline: build → commit artifacts → tag → push to GitHub → generate CDN URLs.
+
+```bash
+bash scripts/deploy.sh
+```
+
+**Prerequisites:** Node.js ≥ 18, `git` with push access to `origin`.
+
+### `scripts/colors.sh`
+
+Shared ANSI colour definitions sourced by `deploy.sh` and `cdn-delivery.sh`. **Source, do not execute directly.**
+
+```bash
+source scripts/colors.sh
+echo -e "${GREEN}OK${NC}"
+```
+
+See [README.md](../README.md#scripts) and [docs/API.md](./API.md#automation-scripts) for full script documentation including steps, exit codes, and troubleshooting.
+
+---
 
 ## Next Steps
 
