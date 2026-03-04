@@ -16,7 +16,7 @@ The easiest way to use `olinda_utils.js` in a browser is via jsDelivr:
 ```html
 <script type="module">
   import { colors, colorize, Logger, logger } from
-    'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.7/dist/src/index.js';
+    'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.8/dist/src/index.js';
 
   logger.info('olinda_utils.js loaded');
 </script>
@@ -59,7 +59,7 @@ import { colors, colorize, Logger, logger, LogLevel, stripAnsi } from 'olinda_ut
 ```javascript
 // CDN (browser ES module)
 import { colors, colorize } from
-  'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.7/dist/src/index.js';
+  'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.8/dist/src/index.js';
 
 // Node.js (after build or GitHub install)
 import { colors, colorize, supportsColor } from 'olinda_utils.js';
@@ -158,7 +158,7 @@ bash scripts/deploy.sh
 
 ### `scripts/colors.sh`
 
-Shared ANSI colour definitions sourced by `deploy.sh` and `cdn-delivery.sh`. **Source, do not execute directly.**
+Shared ANSI colour definitions sourced by `scripts/deploy.sh` and `cdn-delivery.sh`. **Source, do not execute directly.**
 
 ```bash
 source scripts/colors.sh

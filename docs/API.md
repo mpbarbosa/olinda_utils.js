@@ -1,11 +1,11 @@
 # API Reference — olinda_utils.js
 
-Public API for `olinda_utils.js` v0.3.7.
+Public API for `olinda_utils.js` v0.3.8.
 
 CDN entry point:
 
 ```text
-https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.7/dist/src/index.js
+https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.8/dist/src/index.js
 ```
 
 ---
@@ -24,7 +24,7 @@ https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.7/dist/src/index.js
 **Script tag (CJS):**
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.7/dist/src/index.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.8/dist/src/index.js"></script>
 ```
 
 **ES Module:**
@@ -32,7 +32,7 @@ https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.7/dist/src/index.js
 ```html
 <script type="module">
     import { ... } from
-        'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.7/dist/src/index.js';
+        'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.8/dist/src/index.js';
 </script>
 ```
 
@@ -41,8 +41,8 @@ https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.7/dist/src/index.js
 ## Automation Scripts
 
 The project ships three shell scripts for building, deploying, and CDN delivery.
-Script relationships: `deploy.sh` calls `cdn-delivery.sh` (via `npm run cdn`);
-both scripts source `colors.sh` for terminal output.
+Script relationships: `scripts/deploy.sh` calls `cdn-delivery.sh` (via `npm run cdn`);
+both scripts source `scripts/colors.sh` for terminal output.
 
 ### `cdn-delivery.sh`
 
@@ -90,7 +90,7 @@ aborts the script immediately.
 
 ### `scripts/colors.sh`
 
-Shared ANSI colour definitions sourced by `deploy.sh` and `cdn-delivery.sh`.
+Shared ANSI colour definitions sourced by `scripts/deploy.sh` and `cdn-delivery.sh`.
 **Do not execute directly — source it.**
 
 ```bash

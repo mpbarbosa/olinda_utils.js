@@ -1,13 +1,13 @@
 # Roadmap — olinda_utils.js
 
 This document outlines the planned evolution of `olinda_utils.js` from its current
-state (v0.3.7) toward a stable v1.0 release.
+state (v0.3.8) toward a stable v1.0 release.
 
 Priorities may shift based on community feedback and real-world usage patterns.
 
 ---
 
-## Current State — v0.3.7
+## Current State — v0.3.8
 
 | Area | Status |
 |---|---|
@@ -255,4 +255,4 @@ The following are explicitly **out of scope** for this library:
 
 ---
 
-*Last updated: v0.3.7 (2026-03-04)*
+*Last updated: v0.3.8 (2026-03-04)*
