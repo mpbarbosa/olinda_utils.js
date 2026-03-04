@@ -1,4 +1,3 @@
-import { jest } from '@jest/globals';
 import { colors, supportsColor, colorize } from '../../src/core/colors';
 
 // ─── colors object ───────────────────────────────────────────────────────────
