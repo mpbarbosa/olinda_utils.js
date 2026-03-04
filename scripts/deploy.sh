@@ -26,6 +26,10 @@ PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 cd "${PROJECT_ROOT}"
 
 # ── Read version from package.json ────────────────────────────────────────────
+if [[ ! -f package.json ]]; then
+  error "package.json not found in ${PROJECT_ROOT}"
+  exit 1
+fi
 PACKAGE_VERSION="$(node -p "require('./package.json').version")"
 TAG="v${PACKAGE_VERSION}"
 
