@@ -1,7 +1,7 @@
 /**
  * Tests for General Utility Functions Module
  * @module test/core/utils
- * @since 0.3.3
+ * @since 0.3.4
  */
 
 import {
