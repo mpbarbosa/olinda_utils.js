@@ -5,7 +5,13 @@
  * @since 0.1.1
  */
 
-/** ANSI color/style escape codes for terminal output. */
+/**
+ * ANSI color/style escape codes for terminal output.
+ * @since 0.1.1
+ * @example
+ * import { colors } from 'olinda_utils.js';
+ * console.log(`${colors.green}OK${colors.reset}`);
+ */
 export const colors = {
 	// Text styles
 	reset: '\x1b[0m',
@@ -32,11 +38,20 @@ export const colors = {
 	brightWhite: '\x1b[97m',
 } as const;
 
+/** Union type of all valid color/style names in {@link colors}.
+ * @since 0.1.1
+ * @example
+ * const name: ColorName = 'red';
+ * console.log(colors[name]);
+ */
 export type ColorName = keyof typeof colors;
 
 /**
  * Check if the current terminal supports ANSI color output.
+ * @since 0.1.1
  * @returns `true` when stdout is a TTY, `TERM` is not `'dumb'`, and `NO_COLOR` is unset.
+ * @example
+ * if (supportsColor()) console.log('\x1b[32mGreen!\x1b[0m');
  */
 export function supportsColor(): boolean {
 	return (
@@ -49,9 +64,12 @@ export function supportsColor(): boolean {
 /**
  * Wrap `text` in the given ANSI escape code, then reset.
  * Falls back to plain text when the terminal does not support colors.
+ * @since 0.1.1
  * @param text  - The string to colorize.
  * @param color - An ANSI escape sequence (e.g. `colors.red`).
  * @returns The colorized string, or `text` unchanged when colors are unsupported.
+ * @example
+ * colorize('hello', colors.green); // '\x1b[32mhello\x1b[0m'
  */
 export function colorize(text: string, color: string): string {
 	if (!supportsColor()) {

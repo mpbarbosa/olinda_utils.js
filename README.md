@@ -7,7 +7,7 @@ Public JavaScript utility library — TypeScript-authored, delivered via **jsDel
 **CDN (recommended):**
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.4/dist/src/index.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.5/dist/src/index.js"></script>
 ```
 
 **ES Module:**
@@ -15,7 +15,7 @@ Public JavaScript utility library — TypeScript-authored, delivered via **jsDel
 ```html
 <script type="module">
   import { colors, colorize, Logger } from
-    'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.4/dist/src/index.js';
+    'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.5/dist/src/index.js';
 </script>
 ```
 
@@ -99,6 +99,31 @@ echo -e "${GREEN}OK${NC}"
 ```
 
 **Variables exported:** `RED`, `GREEN`, `YELLOW`, `BLUE`, `NC` (reset).
+
+---
+
+### Script relationships
+
+`deploy.sh` calls `cdn-delivery.sh` (via `npm run cdn`); both source `colors.sh`
+for terminal output.
+
+### Executable permissions
+
+If running scripts directly (without `bash`), ensure they are executable:
+
+```bash
+chmod +x scripts/deploy.sh cdn-delivery.sh
+```
+
+### Troubleshooting
+
+| Symptom | Likely cause | Fix |
+|---|---|---|
+| `package.json not found` | Script run from wrong directory | Run from project root |
+| `Could not determine current git branch` | Detached HEAD state | `git checkout main` first |
+| `Tag vX.Y.Z already exists` | Re-deploying same version | Bump version in `package.json` |
+| CDN not serving new version | Tag not yet pushed | `git push origin --tags` |
+| CDN serving stale content | jsDelivr cache | Wait up to 12 h, or use a commit-pinned URL |
 
 ## Development
 

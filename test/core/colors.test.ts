@@ -1,5 +1,13 @@
 import { colors, supportsColor, colorize } from '../../src/core/colors';
 
+// ─── Shared helpers ───────────────────────────────────────────────────────────
+
+function resetColorEnv(): void {
+	Object.defineProperty(process.stdout, 'isTTY', { value: true, configurable: true });
+	delete process.env['TERM'];
+	delete process.env['NO_COLOR'];
+}
+
 // ─── colors object ───────────────────────────────────────────────────────────
 
 describe('colors', () => {
@@ -32,11 +40,7 @@ describe('supportsColor', () => {
 	const originalTERM = process.env['TERM'];
 	const originalNO_COLOR = process.env['NO_COLOR'];
 
-	beforeEach(() => {
-		Object.defineProperty(process.stdout, 'isTTY', { value: true, configurable: true });
-		delete process.env['TERM'];
-		delete process.env['NO_COLOR'];
-	});
+	beforeEach(resetColorEnv);
 
 	afterEach(() => {
 		Object.defineProperty(process.stdout, 'isTTY', { value: originalIsTTY, configurable: true });
@@ -88,11 +92,7 @@ describe('supportsColor', () => {
 // ─── colorize ────────────────────────────────────────────────────────────────
 
 describe('colorize', () => {
-	beforeEach(() => {
-		Object.defineProperty(process.stdout, 'isTTY', { value: true, configurable: true });
-		delete process.env['TERM'];
-		delete process.env['NO_COLOR'];
-	});
+	beforeEach(resetColorEnv);
 
 	afterEach(() => {
 		Object.defineProperty(process.stdout, 'isTTY', { value: undefined, configurable: true });

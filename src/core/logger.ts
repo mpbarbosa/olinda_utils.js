@@ -12,8 +12,11 @@ import path from 'path';
 
 /**
  * Strip ANSI escape codes from a string so log files are plain text.
+ * @since 0.1.2
  * @param str - The string to strip.
  * @returns The string without ANSI codes.
+ * @example
+ * stripAnsi('\x1B[32mhello\x1B[0m'); // 'hello'
  */
 export function stripAnsi(str: string): string {
 	// eslint-disable-next-line no-control-regex
@@ -21,7 +24,10 @@ export function stripAnsi(str: string): string {
 }
 
 /**
- * Log levels with corresponding colors.
+ * Log levels with corresponding labels.
+ * @since 0.1.2
+ * @example
+ * logger.log('msg', LogLevel.INFO);
  */
 export const LogLevel = {
 	DEBUG: 'debug',
@@ -33,7 +39,10 @@ export const LogLevel = {
 
 export type LogLevelValue = (typeof LogLevel)[keyof typeof LogLevel];
 
-/** Options accepted by the {@link Logger} constructor. */
+/**
+ * Options accepted by the {@link Logger} constructor.
+ * @since 0.1.2
+ */
 export interface LoggerOptions {
 	/** Suppress all console output. Default: `false` */
 	quiet?: boolean;
@@ -46,6 +55,12 @@ export interface LoggerOptions {
 /**
  * Logger class for consistent output formatting.
  * @since 0.1.2
+ * @example
+ * const log = new Logger({ prefix: '[myapp]' });
+ * log.info('Started');
+ * log.success('Done');
+ * log.warn('Watch out');
+ * log.error('Failed');
  */
 export class Logger {
 	quiet: boolean;
@@ -282,7 +297,13 @@ export class Logger {
 	}
 }
 
-/** Default logger instance. */
+/**
+ * Default logger instance with no prefix and quiet/verbose both off.
+ * @since 0.1.2
+ * @example
+ * import { logger } from 'olinda_utils.js';
+ * logger.info('Ready');
+ */
 export const logger = new Logger();
 
 export default logger;
