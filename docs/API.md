@@ -1,11 +1,11 @@
 # API Reference — olinda_utils.js
 
-Public API for `olinda_utils.js` v0.3.8.
+Public API for `olinda_utils.js` v0.3.9.
 
 CDN entry point:
 
 ```text
-https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.8/dist/src/index.js
+https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.9/dist/src/index.js
 ```
 
 ---
@@ -24,7 +24,7 @@ https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.8/dist/src/index.js
 **Script tag (CJS):**
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.8/dist/src/index.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.9/dist/src/index.js"></script>
 ```
 
 **ES Module:**
@@ -32,7 +32,7 @@ https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.8/dist/src/index.js
 ```html
 <script type="module">
     import { ... } from
-        'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.8/dist/src/index.js';
+        'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.9/dist/src/index.js';
 </script>
 ```
 

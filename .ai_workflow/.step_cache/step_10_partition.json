@@ -1,10 +1,13 @@
 {
   "version": 1,
-  "partitionIndex": 0,
-  "totalPartitions": 1,
-  "filesHash": "97009efa",
+  "partitionIndex": 1,
+  "totalPartitions": 4,
+  "filesHash": "1b47d0e0",
   "partitionLabels": [
-    "test, test/core, src, src/core, package-lock.json, package.json, tsconfig.esm.json, tsconfig.json, eslint.config.js, jest.config.js, cdn-delivery.sh, scripts"
+    ".ai_workflow/metrics, src/core, src",
+    ".ai_workflow/.step_cache, .ai_workflow, .markdownlint.json, package-lock.json",
+    "package.json, tsconfig.esm.json, tsconfig.json, eslint.config.js, jest.config.js",
+    "cdn-delivery.sh, scripts"
   ],
-  "updatedAt": "2026-03-04T03:09:33.956Z"
+  "updatedAt": "2026-03-07T19:59:03.523Z"
 }
