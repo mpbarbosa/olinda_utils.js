@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "fileScores": {
+    ".ai_workflow/metrics/current_run.json": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-03-07T19:59:03.521Z"
+    },
+    "src/core/colors.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-03-07T19:59:03.521Z"
+    },
+    "src/core/logger.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-03-07T19:59:03.521Z"
+    },
+    "src/core/utils.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-03-07T19:59:03.521Z"
+    },
+    "src/index.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-03-07T19:59:03.521Z"
+    }
+  }
+}
