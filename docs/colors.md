@@ -140,4 +140,4 @@ console.log(`${boldRed}CRITICAL${colors.reset}`);
 ---
 
 **Last Updated:** 2026-03-03
-**Part of:** olinda_utils.js v0.3.10
+**Part of:** olinda_utils.js v0.3.11
