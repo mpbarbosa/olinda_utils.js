@@ -7,7 +7,7 @@ Public JavaScript utility library — TypeScript-authored, delivered via **jsDel
 **CDN (recommended):**
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.10/dist/src/index.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.11/dist/src/index.js"></script>
 ```
 
 **ES Module:**
@@ -15,7 +15,7 @@ Public JavaScript utility library — TypeScript-authored, delivered via **jsDel
 ```html
 <script type="module">
   import { colors, colorize, Logger } from
-    'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.10/dist/src/index.js';
+    'https://cdn.jsdelivr.net/gh/mpbarbosa/olinda_utils.js@0.3.11/dist/src/index.js';
 </script>
 ```
 

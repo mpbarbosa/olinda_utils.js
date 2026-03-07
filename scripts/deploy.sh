@@ -75,14 +75,23 @@ fi
 
 git pull --rebase origin "${CURRENT_BRANCH}"
 
+TAG_IS_NEW=false
 if git rev-parse "${TAG}" >/dev/null 2>&1; then
   warn "Tag ${TAG} already exists — skipping tag creation"
 else
   git tag "${TAG}"
+  TAG_IS_NEW=true
   success "Created tag ${TAG}"
 fi
 
-git push origin "${CURRENT_BRANCH}" --tags
+git push origin "${CURRENT_BRANCH}"
+
+if [[ "${TAG_IS_NEW}" == "true" ]]; then
+  git push origin "${TAG}"
+  success "Pushed tag ${TAG} to origin"
+else
+  warn "Tag ${TAG} already on remote — skipping tag push"
+fi
 success "Pushed to origin/${CURRENT_BRANCH}"
 echo ""
 

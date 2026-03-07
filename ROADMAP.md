@@ -7,7 +7,7 @@ Priorities may shift based on community feedback and real-world usage.
 
 ---
 
-## Current State — v0.3.10
+## Current State — v0.3.11
 
 | Area | Status |
 |---|---|
@@ -120,4 +120,4 @@ The following are explicitly **not planned** for this library:
 
 ---
 
-*Last updated: v0.3.10 — 2026-03-07*
+*Last updated: v0.3.11 — 2026-03-07*
