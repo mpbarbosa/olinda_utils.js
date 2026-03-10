@@ -1,0 +1,28 @@
+[2026-03-07T21:31:20.141Z] 
+→ Starting: Script References
+[2026-03-07T21:31:20.142Z] ════════════════════════════════════════════════════════════
+[2026-03-07T21:31:20.142Z] 🔷  Step 3: Script Reference Validation
+[2026-03-07T21:31:20.142Z] ════════════════════════════════════════════════════════════
+[2026-03-07T21:31:20.200Z] Language: bash, patterns: *.sh
+[2026-03-07T21:31:22.861Z] Found 2 script(s)
+[2026-03-07T21:31:22.864Z] References: 3, missing: 1
+[2026-03-07T21:31:22.864Z] Non-executable: 0
+[2026-03-07T21:31:22.864Z] Undocumented: 0
+[2026-03-07T21:31:26.024Z] ✓ GitHub Copilot SDK initialized successfully
+[2026-03-07T21:31:26.025Z] Available Copilot models (13): claude-sonnet-4.5, claude-haiku-4.5, claude-opus-4.5, claude-sonnet-4, gemini-3-pro-preview, gpt-5.2-codex, gpt-5.2, gpt-5.1-codex-max, gpt-5.1-codex, gpt-5.1, gpt-5.1-codex-mini, gpt-5-mini, gpt-4.1
+[2026-03-07T21:31:26.034Z] [DEBUG] AI cache initialized: .ai_workflow/.ai_cache
+[2026-03-07T21:31:26.052Z] [DEBUG] [ai_cache] step_03: file hash changed, calling AI
+[2026-03-07T21:31:26.053Z] [DEBUG] Request Options: {"model":"gpt-4.1","temperature":0.7,"maxTokens":4000,"stream":false,"persona":"devops_engineer","cache":true}
+[2026-03-07T21:31:26.053Z] [DEBUG] Persona: devops_engineer
+[2026-03-07T21:31:26.053Z] [DEBUG] Model: gpt-4.1
+[2026-03-07T21:31:26.053Z] [AI] SDK call starting — persona: devops_engineer, model: gpt-4.1, prompt_chars: 7263
+[2026-03-07T21:31:26.053Z] [DEBUG] Executing AI request (attempt 1/3)
+[2026-03-07T21:31:35.807Z] [AI] SDK call completed — persona: devops_engineer, model: gpt-4.1, response_chars: 3281, latency: 9754ms
+[2026-03-07T21:31:35.808Z] ✓ AI request completed successfully
+[2026-03-07T21:31:35.809Z] [DEBUG] Prompt logged to: 2026-03-07T21-31-35-808Z_0001_devops_engineer.md
+[2026-03-07T21:31:35.812Z] ⚠ Step 3 completed - 1 issue(s) found
+[2026-03-07T21:31:35.813Z] ✓ Step step_03 completed in 15672ms
+[2026-03-07T21:31:35.813Z] [DEBUG] [Performance] step_03: 15.7s
+[2026-03-07T21:31:35.813Z] ⚠ [WARNING] Operation 'step_03' took 15.7s (memory: 45.11MB)
+[2026-03-07T21:31:35.813Z] [DEBUG] Recorded outcome for step_03: success
+[2026-03-07T21:31:35.813Z] ✓ Completed: Script References (16s)
