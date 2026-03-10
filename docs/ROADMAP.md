@@ -1,59 +1,61 @@
 # Roadmap — olinda_utils.js
 
 This document outlines the planned evolution of `olinda_utils.js` from its current
-state (v0.3.11) toward a stable v1.0 release.
+state (v0.4.2) toward a stable v1.0 release.
 
 Priorities may shift based on community feedback and real-world usage patterns.
 
 ---
 
-## Current State — v0.3.11
+## Current State — v0.4.2
 
 | Area | Status |
 |---|---|
-| Core modules | `colors`, `logger`, `utils` (26 pure functions) |
-| Test coverage | ~99% (186 tests) |
+| Core modules | `colors`, `logger` (stateful classes) |
+| Utils modules | `utils/string` · `utils/array` · `utils/object` (26 pure functions) |
+| Test coverage | 98.33% statements · 235 tests |
 | Distribution | jsDelivr CDN from GitHub (no npm publish) |
 | Builds | CJS (`dist/`) + ESM (`dist/esm/`) |
-| TypeScript | Strict mode, declaration files generated |
+| TypeScript | Strict mode · declaration files generated · `exports` types map |
+| CI | GitHub Actions — Node 18 / 20 / 22; pack dry-run; integration tests |
+| Docs | `API.md`, `ARCHITECTURE.md`, `GETTING_STARTED.md`, `colors.md`, `logger.md`, `utils.md` |
 
 ---
 
-## v0.4.x — Structural Consolidation
+## v0.4.x — Structural Consolidation ✅
 
 > Goal: align the physical layout with the documented architecture and add
 > missing utility categories before the surface grows larger.
 
-### v0.4.0 — Module Split & Type Safety
+### v0.4.0 — Module Split & Type Safety ✅
 
-- Move `src/core/utils.ts` functions into `src/utils/` sub-modules by domain:
+- Moved `src/core/utils.ts` functions into `src/utils/` sub-modules by domain:
     - `src/utils/string.ts` — `camelCase`, `kebabCase`, `snakeCase`, `pascalCase`,
     `capitalize`, `truncate`, `sanitize`, `cleanWhitespace`, `escapeRegex`
     - `src/utils/array.ts` — `dedupe`, `chunk`, `flatten`, `groupBy`, `sortBy`,
     `intersection`, `difference`, `partition`
     - `src/utils/object.ts` — `deepClone`, `deepMerge`, `pick`, `omit`,
     `getProperty`, `setProperty`, `hasProperty`, `deepEqual`, `isEmpty`
-- Keep `src/core/` for stateful classes (`colors`, `logger`)
-- Align test files: `test/utils/string.test.ts`, `test/utils/array.test.ts`,
-  `test/utils/object.test.ts`
-- No API surface changes — re-export everything from `src/index.ts`
+- `src/core/utils.ts` converted to a re-export barrel (backward-compatible)
+- `src/core/` retained for stateful classes (`colors`, `logger`)
+- Test files split: `test/utils/string.test.ts`, `test/utils/array.test.ts`,
+  `test/utils/object.test.ts`; `test/core/utils.test.ts` replaced with a surface smoke test
+- No API surface changes — re-exports everything from `src/index.ts`
 
-### v0.4.1 — Test Infrastructure
+### v0.4.1 — Test Infrastructure ✅
 
-- Add `test/benchmarks/` suite (already scaffolded) with baseline benchmarks
-  for all array and object utilities
-- Add `test/helpers/` fixtures shared across test suites
-- Add `test/integration/` smoke tests that import from the compiled `dist/`
-  (CJS and ESM) to catch build regressions
-- Enforce `--passWithNoTests` only during development; CI requires ≥ 1 test
+- `test/helpers/fixtures.ts` — typed shared constants reused across test suites
+- `test/benchmarks/array.benchmark.ts` + `object.benchmark.ts` — baseline benchmarks
+- `test/integration/cjs.test.ts` — `require()` smoke test against compiled `dist/src/index.js`
+- `test/integration/esm.test.ts` — `node --input-type=module` smoke test against `dist/esm/`
 
-### v0.4.2 — Developer Experience
+### v0.4.2 — Developer Experience ✅
 
-- Generate and commit `dist/types/` declaration files to the CDN-served tree
-  so consumers get IntelliSense without a local TypeScript setup
-- Add `exports` map entry for `"types"` in `package.json`
-- Publish `npm pack` dry-run in CI to surface packaging issues early
-- Add `CONTRIBUTING.md` quick-start section with `npm test` and `npm run lint`
+- TypeScript declaration files committed to CDN-served tree; `exports` types map in `package.json`
+- `npm pack --dry-run` step added to CI (Node 22 only) to surface packaging issues early
+- ESM build step added to CI (`npm run build:esm`)
+- Integration tests wired into CI pipeline
+- `CONTRIBUTING.md` expanded with pre-commit hooks section and full test command reference
 
 ---
 
@@ -255,4 +257,4 @@ The following are explicitly **out of scope** for this library:
 
 ---
 
-*Last updated: v0.3.11 (2026-03-04)*
+*Last updated: v0.4.2 (2026-03-10)*

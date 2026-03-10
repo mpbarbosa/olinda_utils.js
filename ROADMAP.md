@@ -7,27 +7,30 @@ Priorities may shift based on community feedback and real-world usage.
 
 ---
 
-## Current State — v0.3.11
+## Current State — v0.4.2
 
 | Area | Status |
 |---|---|
-| Core modules | `colors`, `logger`, `utils` (26 pure functions) |
+| Core modules | `colors`, `logger` (stateful classes) |
+| Utils modules | `utils/string` · `utils/array` · `utils/object` (26 pure functions) |
 | Distribution | jsDelivr CDN from GitHub (no npm publish yet) |
 | Builds | CJS (`dist/`) + ESM (`dist/esm/`) + TypeScript declarations |
-| Test coverage | ~99% statements · 194 tests |
-| CI | GitHub Actions — Node 18 / 20 / 22 |
+| Test coverage | 98.33% statements · 235 tests |
+| CI | GitHub Actions — Node 18 / 20 / 22; ESM build; integration tests; pack dry-run |
+| Docs | `API.md`, `ARCHITECTURE.md`, `GETTING_STARTED.md`, `colors.md`, `logger.md`, `utils.md` |
 
 ---
 
-## v0.4.x — Structural Consolidation
+## v0.4.x — Structural Consolidation ✅
 
 > **Goal:** align the physical layout with the documented architecture before the surface grows larger.
 
 - Split `src/core/utils.ts` into domain modules under `src/utils/`:
-  `string.ts` · `array.ts` · `object.ts`
-- Add baseline benchmarks (`test/benchmarks/`) and integration tests against the compiled `dist/`
-- Commit TypeScript declaration files to the CDN-served tree (IntelliSense without a local TS setup)
-- `npm pack` dry-run in CI to surface packaging issues early
+  `string.ts` · `array.ts` · `object.ts` (re-export barrel preserved for backward compat)
+- Added baseline benchmarks (`test/benchmarks/`), shared fixtures (`test/helpers/`),
+  and integration smoke tests (CJS and ESM) against the compiled `dist/`
+- ESM build, integration tests, and `npm pack` dry-run added to CI pipeline
+- `CONTRIBUTING.md` expanded with pre-commit hooks section and full test command reference
 
 ---
 
@@ -120,4 +123,4 @@ The following are explicitly **not planned** for this library:
 
 ---
 
-*Last updated: v0.3.11 — 2026-03-07*
+*Last updated: v0.4.2 — 2026-03-10*

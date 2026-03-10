@@ -4,14 +4,32 @@ Thank you for your interest in contributing! This guide covers everything you ne
 
 ## Development Setup
 
-**Prerequisites:** Node.js ≥ 18, npm ≥ 9, Git.
+**Prerequisites:** Node.js ≥ 18, npm ≥ 9, Git, Python ≥ 3.8 (for pre-commit).
 
 ```bash
 git clone https://github.com/mpbarbosa/olinda_utils.js.git
 cd olinda_utils.js
 npm install
-npm run build   # compile TypeScript → dist/
-npm test        # run test suite
+npm run build        # compile TypeScript → dist/ (CJS)
+npm run build:esm    # compile TypeScript → dist/esm/ (ESM)
+npm test             # run unit + integration test suite
+```
+
+## Pre-commit Hooks
+
+This project uses [pre-commit](https://pre-commit.com/) to enforce EditorConfig, secret detection,
+and Markdown lint on every commit.
+
+```bash
+pip install pre-commit      # install the pre-commit tool (once)
+pre-commit install          # register hooks in your local clone
+pre-commit run --all-files  # run all hooks manually (optional sanity check)
+```
+
+Once installed, hooks run automatically on `git commit`. To bypass in emergencies:
+
+```bash
+git commit --no-verify -m "chore: emergency fix"
 ```
 
 ## Making Changes
@@ -20,9 +38,10 @@ npm test        # run test suite
 2. Make your changes in `src/` (TypeScript only — never commit plain `.js` under `src/`)
 3. Add tests in the corresponding `test/` subdirectory
 4. Run the full test suite: `npm test`
-5. Run the linter: `npm run lint`
-6. Run the type-checker: `npm run validate`
-7. Commit and open a pull request
+5. Run the integration tests: `npm run test:integration`
+6. Run the linter: `npm run lint`
+7. Run the type-checker: `npm run validate`
+8. Commit and open a pull request
 
 ## Code Style
 
@@ -43,7 +62,12 @@ npm run lint:fix    # auto-fix
 ## Testing Requirements
 
 - Test framework: **Jest + ts-jest** (TypeScript compiled natively — no pre-build needed)
-- Tests live in `test/` mirroring the `src/` structure
+- Tests live in `test/` mirroring the `src/` structure:
+    - `test/utils/` — unit tests for `src/utils/` domain modules
+    - `test/core/` — unit tests for `src/core/` classes + public surface smoke tests
+    - `test/integration/` — CJS and ESM smoke tests against compiled `dist/`
+    - `test/benchmarks/` — performance benchmarks (excluded from coverage)
+    - `test/helpers/` — shared fixtures and typed constants
 - **Coverage thresholds** (enforced by CI):
     - Statements: ≥ 80%
     - Functions: ≥ 80%
@@ -53,9 +77,11 @@ npm run lint:fix    # auto-fix
 - Run the full suite before opening a PR:
 
 ```bash
-npm test              # full suite + coverage report
-npm run test:verbose  # with per-test output
-npm run bench         # performance benchmarks (not included in coverage)
+npm test                  # unit + integration suite + coverage
+npm run test:verbose      # with per-test output
+npm run test:integration  # CJS and ESM build smoke tests (requires npm run build)
+npm run bench             # performance benchmarks (not included in coverage)
+npm run validate          # type-check only (no emit)
 ```
 
 ## Commit Message Format
@@ -80,6 +106,7 @@ test: add negative test cases for colorize
 ## Pull Request Checklist
 
 - [ ] Tests pass (`npm test`)
+- [ ] Integration tests pass (`npm run test:integration` — requires build)
 - [ ] Linter passes (`npm run lint`)
 - [ ] Type-check passes (`npm run validate`)
 - [ ] Coverage thresholds met (no regression)

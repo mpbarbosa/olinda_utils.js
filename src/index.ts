@@ -19,6 +19,9 @@ export {
 	sanitize,
 	cleanWhitespace,
 	escapeRegex,
+} from './utils/string.js';
+
+export {
 	dedupe,
 	chunk,
 	flatten,
@@ -27,6 +30,9 @@ export {
 	intersection,
 	difference,
 	partition,
+} from './utils/array.js';
+
+export {
 	deepClone,
 	deepMerge,
 	pick,
@@ -36,4 +42,4 @@ export {
 	hasProperty,
 	deepEqual,
 	isEmpty,
-} from './core/utils.js';
+} from './utils/object.js';

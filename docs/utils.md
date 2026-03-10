@@ -1,7 +1,7 @@
 # utils — General Utility Functions
 
-**Module:** `core/utils`
-**Version:** 0.3.11
+**Modules:** `utils/string` · `utils/array` · `utils/object`
+**Version:** 0.4.0
 **Type:** Pure Functions Only
 **Since:** 0.3.11
 

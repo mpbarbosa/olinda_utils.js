@@ -35,11 +35,21 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Build ESM
+        run: npm run build:esm
+
+      - name: Pack dry-run
+        if: matrix.node-version == 22
+        run: npm pack --dry-run
+
       - name: Lint
         run: npm run lint
 
       - name: Test with coverage
         run: npm run test:coverage
+
+      - name: Integration tests
+        run: npm run test:integration
 
       - name: Upload coverage report
         if: matrix.node-version == 22
