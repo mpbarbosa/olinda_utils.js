@@ -4,7 +4,7 @@
     ".ai_workflow/metrics/current_run.json": {
       "score": 100,
       "issueCount": 0,
-      "lastAnalyzed": "2026-03-07T22:31:52.429Z"
+      "lastAnalyzed": "2026-03-10T15:07:19.761Z"
     },
     "src/core/colors.ts": {
       "score": 100,
@@ -65,6 +65,26 @@
       "score": 100,
       "issueCount": 0,
       "lastAnalyzed": "2026-03-07T22:31:52.429Z"
+    },
+    "src/utils/array.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-03-10T15:07:19.761Z"
+    },
+    "src/utils/object.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-03-10T15:07:19.761Z"
+    },
+    "src/utils/string.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-03-10T15:07:19.761Z"
+    },
+    "package.json": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-03-10T15:07:19.761Z"
     }
   }
 }
