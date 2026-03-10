@@ -10,7 +10,7 @@
  * Convert string to camelCase.
  * @param str - String to convert.
  * @returns camelCase string, or `''` for non-string input.
- * @since 0.3.11
+ * @since 0.3.12
  * @example camelCase('hello-world') // 'helloWorld'
  */
 export function camelCase(str: unknown): string {
@@ -24,7 +24,7 @@ export function camelCase(str: unknown): string {
  * Convert string to kebab-case.
  * @param str - String to convert.
  * @returns kebab-case string, or `''` for non-string input.
- * @since 0.3.11
+ * @since 0.3.12
  * @example kebabCase('helloWorld') // 'hello-world'
  */
 export function kebabCase(str: unknown): string {
@@ -40,7 +40,7 @@ export function kebabCase(str: unknown): string {
  * Convert string to snake_case.
  * @param str - String to convert.
  * @returns snake_case string, or `''` for non-string input.
- * @since 0.3.11
+ * @since 0.3.12
  * @example snakeCase('helloWorld') // 'hello_world'
  */
 export function snakeCase(str: unknown): string {
@@ -56,7 +56,7 @@ export function snakeCase(str: unknown): string {
  * Convert string to PascalCase.
  * @param str - String to convert.
  * @returns PascalCase string, or `''` for non-string input.
- * @since 0.3.11
+ * @since 0.3.12
  * @example pascalCase('hello-world') // 'HelloWorld'
  */
 export function pascalCase(str: unknown): string {
@@ -70,7 +70,7 @@ export function pascalCase(str: unknown): string {
  * Capitalize the first letter of a string.
  * @param str - String to capitalize.
  * @returns Capitalized string, or `''` for non-string / empty input.
- * @since 0.3.11
+ * @since 0.3.12
  * @example capitalize('hello') // 'Hello'
  */
 export function capitalize(str: unknown): string {
@@ -84,7 +84,7 @@ export function capitalize(str: unknown): string {
  * @param length - Maximum length of the result (including the suffix).
  * @param suffix - Appended when truncation occurs. Defaults to `'...'`.
  * @returns Truncated string, or the original string if it fits.
- * @since 0.3.11
+ * @since 0.3.12
  * @example truncate('hello world', 8) // 'hello...'
  */
 export function truncate(str: string, length: number, suffix = '...'): string {
@@ -97,7 +97,7 @@ export function truncate(str: string, length: number, suffix = '...'): string {
  * @param str - String to sanitize.
  * @param allowed - Extra characters to allow (default `'-_'`).
  * @returns Sanitized string, or `''` for non-string input.
- * @since 0.3.11
+ * @since 0.3.12
  * @example sanitize('hello@world!') // 'helloworld'
  * @example sanitize('hello-world_test', '-_') // 'hello-world_test'
  */
@@ -112,7 +112,7 @@ export function sanitize(str: unknown, allowed = '-_'): string {
  * Collapse consecutive whitespace characters and trim the string.
  * @param str - String to clean.
  * @returns Cleaned string, or `''` for non-string input.
- * @since 0.3.11
+ * @since 0.3.12
  * @example cleanWhitespace('hello    world') // 'hello world'
  */
 export function cleanWhitespace(str: unknown): string {
@@ -124,7 +124,7 @@ export function cleanWhitespace(str: unknown): string {
  * Escape all special regex metacharacters in a string.
  * @param str - String to escape.
  * @returns Escaped string, or `''` for non-string input.
- * @since 0.3.11
+ * @since 0.3.12
  * @example escapeRegex('hello.world') // 'hello\\.world'
  */
 export function escapeRegex(str: unknown): string {
