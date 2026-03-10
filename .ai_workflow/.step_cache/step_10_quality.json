@@ -4,7 +4,7 @@
     ".ai_workflow/metrics/current_run.json": {
       "score": 100,
       "issueCount": 0,
-      "lastAnalyzed": "2026-03-10T15:07:19.761Z"
+      "lastAnalyzed": "2026-03-10T16:07:05.967Z"
     },
     "src/core/colors.ts": {
       "score": 100,
@@ -44,7 +44,7 @@
     ".ai_workflow/commit_history.json": {
       "score": 100,
       "issueCount": 0,
-      "lastAnalyzed": "2026-03-07T21:32:38.686Z"
+      "lastAnalyzed": "2026-03-10T16:07:05.967Z"
     },
     "scripts/deploy.sh": {
       "score": 100,
@@ -85,6 +85,21 @@
       "score": 100,
       "issueCount": 0,
       "lastAnalyzed": "2026-03-10T15:07:19.761Z"
+    },
+    "tsconfig.esm.json": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-03-10T16:07:05.967Z"
+    },
+    "tsconfig.json": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-03-10T16:07:05.967Z"
+    },
+    "eslint.config.js": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-03-10T16:07:05.967Z"
     }
   }
 }
