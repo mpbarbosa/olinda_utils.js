@@ -32,7 +32,7 @@ function _deepCloneHelper<T>(obj: T, seen: WeakSet<object>): T {
  * rather than cloned again) to avoid infinite recursion.
  * @param obj - Value to clone.
  * @returns Deep clone of `obj`.
- * @since 0.3.12
+ * @since 0.3.13
  * @example deepClone({a:{b:1}}) // {a:{b:1}} — independent copy
  */
 export function deepClone<T>(obj: T): T {
@@ -57,7 +57,7 @@ function mergeSource(result: Record<string, unknown>, source: Record<string, unk
  * @param target - Base object.
  * @param sources - Objects to merge into the clone of `target`.
  * @returns New merged object.
- * @since 0.3.12
+ * @since 0.3.13
  * @example deepMerge({a:{b:1}},{a:{c:2}}) // {a:{b:1,c:2}}
  */
 export function deepMerge(target: Record<string, unknown>, ...sources: Record<string, unknown>[]): Record<string, unknown> {
@@ -74,7 +74,7 @@ export function deepMerge(target: Record<string, unknown>, ...sources: Record<st
  * @param obj - Source object.
  * @param keys - Keys to include.
  * @returns Subset object, or `{}` for invalid input.
- * @since 0.3.12
+ * @since 0.3.13
  * @example pick({a:1,b:2,c:3}, ['a','c']) // {a:1,c:3}
  */
 export function pick<T extends object, K extends keyof T>(obj: T | null | undefined, keys: K[]): Pick<T, K> {
@@ -90,7 +90,7 @@ export function pick<T extends object, K extends keyof T>(obj: T | null | undefi
  * @param obj - Source object.
  * @param keys - Keys to exclude.
  * @returns New object without the omitted keys, or `{}` for invalid input.
- * @since 0.3.12
+ * @since 0.3.13
  * @example omit({a:1,b:2,c:3}, ['b']) // {a:1,c:3}
  */
 export function omit<T extends object, K extends keyof T>(obj: T | null | undefined, keys: K[]): Omit<T, K> {
@@ -110,7 +110,7 @@ export function omit<T extends object, K extends keyof T>(obj: T | null | undefi
  * @param path - Dot-separated key path (e.g. `'user.address.city'`).
  * @param defaultValue - Returned when the path does not exist.
  * @returns Value at path, or `defaultValue`.
- * @since 0.3.12
+ * @since 0.3.13
  * @example getProperty({user:{name:'John'}}, 'user.name') // 'John'
  */
 export function getProperty<T = unknown>(obj: unknown, path: string, defaultValue?: T): T | undefined {
@@ -134,7 +134,7 @@ export function getProperty<T = unknown>(obj: unknown, path: string, defaultValu
  * @param path - Dot-separated key path.
  * @param value - Value to assign.
  * @returns New object with the property set, or the original value for invalid input.
- * @since 0.3.12
+ * @since 0.3.13
  * @example setProperty({}, 'a.b.c', 42) // {a:{b:{c:42}}}
  */
 export function setProperty<T>(obj: T, path: string, value: unknown): T {
@@ -156,7 +156,7 @@ export function setProperty<T>(obj: T, path: string, value: unknown): T {
  * @param obj - Source object.
  * @param path - Dot-separated key path.
  * @returns `true` if the full path exists, `false` otherwise.
- * @since 0.3.12
+ * @since 0.3.13
  * @example hasProperty({user:{name:'John'}}, 'user.name') // true
  */
 export function hasProperty(obj: unknown, path: string): boolean {
@@ -189,7 +189,7 @@ function equalObjects(a: Record<string, unknown>, b: Record<string, unknown>): b
  * @param a - First value.
  * @param b - Second value.
  * @returns `true` when the values are structurally equal.
- * @since 0.3.12
+ * @since 0.3.13
  * @example deepEqual({a:{b:1}},{a:{b:1}}) // true
  */
 export function deepEqual(a: unknown, b: unknown): boolean {
@@ -206,7 +206,7 @@ export function deepEqual(a: unknown, b: unknown): boolean {
  * Note: `0` and `false` are **not** considered empty.
  * @param value - Value to check.
  * @returns `true` when the value is empty.
- * @since 0.3.12
+ * @since 0.3.13
  * @example isEmpty([]) // true
  * @example isEmpty(0) // false
  */

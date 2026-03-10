@@ -10,7 +10,7 @@
  * Remove duplicate values from an array using strict equality.
  * @param arr - Array to deduplicate.
  * @returns New array without duplicates, or `[]` for non-array input.
- * @since 0.3.12
+ * @since 0.3.13
  * @example dedupe([1, 2, 2, 3]) // [1, 2, 3]
  */
 export function dedupe<T>(arr: unknown): T[] {
@@ -23,7 +23,7 @@ export function dedupe<T>(arr: unknown): T[] {
  * @param arr - Array to chunk.
  * @param size - Chunk size (must be ≥ 1).
  * @returns Array of chunks, or `[]` for invalid input.
- * @since 0.3.12
+ * @since 0.3.13
  * @example chunk([1,2,3,4,5], 2) // [[1,2],[3,4],[5]]
  */
 export function chunk<T>(arr: unknown, size: number): T[][] {
@@ -38,7 +38,7 @@ export function chunk<T>(arr: unknown, size: number): T[][] {
  * @param arr - Array to flatten.
  * @param depth - How many levels deep to flatten (default: `Infinity`).
  * @returns Flattened array, or `[]` for non-array input.
- * @since 0.3.12
+ * @since 0.3.13
  * @example flatten([1, [2, [3, 4]]]) // [1, 2, 3, 4]
  * @example flatten([1, [2, [3, 4]]], 1) // [1, 2, [3, 4]]
  */
@@ -55,7 +55,7 @@ export function flatten<T>(arr: unknown, depth = Infinity): T[] {
  * @param arr - Array to group.
  * @param keyOrFn - Property name or function that returns the group key.
  * @returns Object mapping group keys to arrays of elements, or `{}` for invalid input.
- * @since 0.3.12
+ * @since 0.3.13
  * @example groupBy([{t:'a'},{t:'b'},{t:'a'}], 'type') // { a:[...], b:[...] }
  */
 export function groupBy<T>(arr: unknown, keyOrFn: string | ((item: T) => string)): Record<string, T[]> {
@@ -75,7 +75,7 @@ export function groupBy<T>(arr: unknown, keyOrFn: string | ((item: T) => string)
  * @param keyOrFn - Property name or function that returns the sort key.
  * @param order - `'asc'` (default) or `'desc'`.
  * @returns Sorted array, or `[]` for invalid input.
- * @since 0.3.12
+ * @since 0.3.13
  * @example sortBy([{age:30},{age:20}], 'age') // [{age:20},{age:30}]
  */
 export function sortBy<T>(arr: unknown, keyOrFn: string | ((item: T) => unknown), order: 'asc' | 'desc' = 'asc'): T[] {
@@ -93,7 +93,7 @@ export function sortBy<T>(arr: unknown, keyOrFn: string | ((item: T) => unknown)
  * Return elements that appear in every provided array.
  * @param arrays - Two or more arrays to intersect.
  * @returns Intersection array, or `[]` when no arrays are provided.
- * @since 0.3.12
+ * @since 0.3.13
  * @example intersection([1,2,3],[2,3,4],[3,4,5]) // [3]
  */
 export function intersection<T>(...arrays: unknown[]): T[] {
@@ -107,7 +107,7 @@ export function intersection<T>(...arrays: unknown[]): T[] {
  * @param arr1 - Source array.
  * @param arr2 - Array of values to exclude.
  * @returns Difference array, or `[]` for invalid input.
- * @since 0.3.12
+ * @since 0.3.13
  * @example difference([1,2,3],[2,3,4]) // [1]
  */
 export function difference<T>(arr1: unknown, arr2: unknown): T[] {
@@ -120,7 +120,7 @@ export function difference<T>(arr1: unknown, arr2: unknown): T[] {
  * @param arr - Array to partition.
  * @param predicate - Function that returns `true` for elements in the first group.
  * @returns `[truthy, falsy]` tuple, or `[[],[]]` for invalid input.
- * @since 0.3.12
+ * @since 0.3.13
  * @example partition([1,2,3,4,5], n => n%2===0) // [[2,4],[1,3,5]]
  */
 export function partition<T>(arr: unknown, predicate: (item: T) => boolean): [T[], T[]] {

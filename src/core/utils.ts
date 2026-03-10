@@ -3,7 +3,7 @@
  * @module core/utils
  * @description Re-exports all utility functions from their domain sub-modules.
  * Implementations live in `src/utils/string.ts`, `src/utils/array.ts`, and `src/utils/object.ts`.
- * @since 0.3.12
+ * @since 0.3.13
  */
 
 export * from '../utils/string.js';
