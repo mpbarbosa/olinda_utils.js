@@ -3,7 +3,7 @@
 **Modules:** `utils/string` · `utils/array` · `utils/object`
 **Version:** 0.4.0
 **Type:** Pure Functions Only
-**Since:** 0.3.13
+**Since:** 0.3.14
 
 ## Overview
 
