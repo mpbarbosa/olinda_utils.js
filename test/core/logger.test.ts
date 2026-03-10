@@ -162,7 +162,7 @@ describe('Logger file logging', () => {
 
 	it('setLogFile() creates the log file', async () => {
 		const l = new Logger({ quiet: true });
-		l.setLogFile(logFile);
+		await l.setLogFile(logFile);
 		l.info('written to file');
 		await l.closeLogFile();
 		expect(fs.existsSync(logFile)).toBe(true);
@@ -170,7 +170,7 @@ describe('Logger file logging', () => {
 
 	it('writes stripped ANSI to log file', async () => {
 		const l = new Logger({ quiet: true });
-		l.setLogFile(logFile);
+		await l.setLogFile(logFile);
 		l.info('file message');
 		await l.closeLogFile();
 		const content = fs.readFileSync(logFile, 'utf8');
@@ -181,7 +181,7 @@ describe('Logger file logging', () => {
 	it('openStepLogFile() creates a step log file', async () => {
 		const stepLog = path.join(tmpDir, 'step.log');
 		const l = new Logger({ quiet: true });
-		l.openStepLogFile(stepLog);
+		await l.openStepLogFile(stepLog);
 		l.info('step log message');
 		await l.closeStepLogFile();
 		await l.closeLogFile();
@@ -190,7 +190,7 @@ describe('Logger file logging', () => {
 
 	it('reopenLogFiles() does not throw', async () => {
 		const l = new Logger({ quiet: true });
-		l.setLogFile(logFile);
+		await l.setLogFile(logFile);
 		expect(() => l.reopenLogFiles()).not.toThrow();
 		await l.closeLogFile();
 	});
@@ -198,8 +198,8 @@ describe('Logger file logging', () => {
 	it('setLogFile() can be called twice (closes previous stream)', async () => {
 		const logFile2 = path.join(tmpDir, 'test2.log');
 		const l = new Logger({ quiet: true });
-		l.setLogFile(logFile);
-		l.setLogFile(logFile2); // covers line 106: this._logStream.end()
+		await l.setLogFile(logFile);
+		await l.setLogFile(logFile2); // awaiting ensures stream1 is fully closed first
 		l.info('written to second log');
 		await l.closeLogFile();
 		expect(fs.existsSync(logFile2)).toBe(true);
@@ -209,8 +209,8 @@ describe('Logger file logging', () => {
 		const stepLog1 = path.join(tmpDir, 'step1.log');
 		const stepLog2 = path.join(tmpDir, 'step2.log');
 		const l = new Logger({ quiet: true });
-		l.openStepLogFile(stepLog1);
-		l.openStepLogFile(stepLog2); // covers line 77: this._stepLogStream.end()
+		await l.openStepLogFile(stepLog1);
+		await l.openStepLogFile(stepLog2); // awaiting ensures stream1 is fully closed first
 		l.info('step log message');
 		await l.closeStepLogFile();
 		expect(fs.existsSync(stepLog2)).toBe(true);
@@ -219,8 +219,8 @@ describe('Logger file logging', () => {
 	it('reopenLogFiles() works with both log and step log streams open', async () => {
 		const stepLog = path.join(tmpDir, 'step.log');
 		const l = new Logger({ quiet: true });
-		l.setLogFile(logFile);
-		l.openStepLogFile(stepLog);
+		await l.setLogFile(logFile);
+		await l.openStepLogFile(stepLog);
 		expect(() => l.reopenLogFiles()).not.toThrow(); // covers lines 142-145
 		l.info('after reopen');
 		await l.closeStepLogFile();
@@ -281,7 +281,7 @@ describe('Logger.step()', () => {
 		const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'step-test-'));
 		const logFile = path.join(tmpDir, 'step.log');
 		const l = new Logger({ quiet: true });
-		l.setLogFile(logFile);
+		await l.setLogFile(logFile);
 		l.step('File Step');
 		await l.closeLogFile();
 		const content = fs.readFileSync(logFile, 'utf8');

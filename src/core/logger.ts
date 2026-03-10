@@ -84,13 +84,15 @@ export class Logger {
 	/**
 	 * Open a per-step secondary log file. All log lines are written to both
 	 * the main workflow log and this step log until closeStepLogFile() is called.
+	 * If a step log is already open it is properly closed before the new one is opened.
 	 * @param filePath - Absolute path to the step log file.
+	 * @returns Promise that resolves once the new stream is ready.
 	 */
-	openStepLogFile(filePath: string): void {
+	async openStepLogFile(filePath: string): Promise<void> {
 		try {
-			fs.mkdirSync(path.dirname(filePath), { recursive: true });
+			await fs.promises.mkdir(path.dirname(filePath), { recursive: true });
 			if (this._stepLogStream) {
-				this._stepLogStream.end();
+				await this.closeStepLogFile();
 			}
 			this._stepLogFilePath = filePath;
 			this._stepLogStream = fs.createWriteStream(filePath, { flags: 'a' });
@@ -113,13 +115,15 @@ export class Logger {
 	 * Configure file logging. Creates the directory if needed and opens an
 	 * append stream to the given file path. All subsequent log calls will
 	 * be written there (without ANSI codes) in addition to the console.
+	 * If a log file is already open it is properly closed before the new one is opened.
 	 * @param filePath - Absolute path to the log file.
+	 * @returns Promise that resolves once the new stream is ready.
 	 */
-	setLogFile(filePath: string): void {
+	async setLogFile(filePath: string): Promise<void> {
 		try {
-			fs.mkdirSync(path.dirname(filePath), { recursive: true });
+			await fs.promises.mkdir(path.dirname(filePath), { recursive: true });
 			if (this._logStream) {
-				this._logStream.end();
+				await this.closeLogFile();
 			}
 			this._logFilePath = filePath;
 			this._logStream = fs.createWriteStream(filePath, { flags: 'a' });
