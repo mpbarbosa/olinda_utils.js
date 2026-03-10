@@ -2,8 +2,12 @@ import { colors, supportsColor, colorize } from '../../src/core/colors';
 
 // ─── Shared helpers ───────────────────────────────────────────────────────────
 
+function setTTY(value: boolean | undefined): void {
+	Object.defineProperty(process.stdout, 'isTTY', { value, configurable: true });
+}
+
 function resetColorEnv(): void {
-	Object.defineProperty(process.stdout, 'isTTY', { value: true, configurable: true });
+	setTTY(true);
 	delete process.env['TERM'];
 	delete process.env['NO_COLOR'];
 }
@@ -43,7 +47,7 @@ describe('supportsColor', () => {
 	beforeEach(resetColorEnv);
 
 	afterEach(() => {
-		Object.defineProperty(process.stdout, 'isTTY', { value: originalIsTTY, configurable: true });
+		setTTY(originalIsTTY);
 		if (originalTERM === undefined) {
 			delete process.env['TERM'];
 		} else {
@@ -61,7 +65,7 @@ describe('supportsColor', () => {
 	});
 
 	it('returns false when isTTY is false', () => {
-		Object.defineProperty(process.stdout, 'isTTY', { value: false, configurable: true });
+		setTTY(false);
 		expect(supportsColor()).toBe(false);
 	});
 
@@ -84,7 +88,7 @@ describe('supportsColor', () => {
 	});
 
 	it('returns false when isTTY is undefined (non-TTY stream)', () => {
-		Object.defineProperty(process.stdout, 'isTTY', { value: undefined, configurable: true });
+		setTTY(undefined);
 		expect(supportsColor()).toBe(false);
 	});
 });
@@ -97,7 +101,7 @@ describe('colorize', () => {
 	beforeEach(resetColorEnv);
 
 	afterEach(() => {
-		Object.defineProperty(process.stdout, 'isTTY', { value: originalIsTTY, configurable: true });
+		setTTY(originalIsTTY);
 	});
 
 	it('wraps text with color code and reset when colors supported', () => {
@@ -106,7 +110,7 @@ describe('colorize', () => {
 	});
 
 	it('returns plain text when colors not supported', () => {
-		Object.defineProperty(process.stdout, 'isTTY', { value: false, configurable: true });
+		setTTY(false);
 		expect(colorize('hello', colors.red)).toBe('hello');
 	});
 
@@ -115,7 +119,7 @@ describe('colorize', () => {
 		expect(result).toBe(`\x1b[32mworld\x1b[0m`);
 	});
 
-	it('should return empty string when given empty input', () => {
+	it('wraps empty string with color codes when colors supported', () => {
 		expect(colorize('', colors.red)).toBe(`${colors.red}${colors.reset}`);
 	});
 });

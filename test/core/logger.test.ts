@@ -4,6 +4,12 @@ import os from 'os';
 import path from 'path';
 import { Logger, LogLevel, stripAnsi, logger } from '../../src/core/logger';
 
+// ─── Shared helpers ───────────────────────────────────────────────────────────
+
+function setTTY(value: boolean | undefined): void {
+	Object.defineProperty(process.stdout, 'isTTY', { value, configurable: true });
+}
+
 // ─── stripAnsi ───────────────────────────────────────────────────────────────
 
 describe('stripAnsi', () => {
@@ -249,18 +255,18 @@ describe('Logger.step()', () => {
 	});
 
 	it('should log plain separator when color is not supported', () => {
-		Object.defineProperty(process.stdout, 'isTTY', { value: false, configurable: true });
+		setTTY(false);
 		const l = new Logger({ quiet: false });
 		l.step('Plain Step');
 		expect(logSpy).toHaveBeenCalled();
 		// output should not contain ANSI escape codes
 		const calls = logSpy.mock.calls.flat().join('');
 		expect(calls).not.toMatch(/\x1B\[/);
-		Object.defineProperty(process.stdout, 'isTTY', { value: undefined, configurable: true });
+		setTTY(undefined);
 	});
 
 	it('should log ANSI-colored separator when color is supported', () => {
-		Object.defineProperty(process.stdout, 'isTTY', { value: true, configurable: true });
+		setTTY(true);
 		delete process.env['TERM'];
 		delete process.env['NO_COLOR'];
 		const l = new Logger({ quiet: false });
@@ -268,7 +274,7 @@ describe('Logger.step()', () => {
 		expect(logSpy).toHaveBeenCalled();
 		const calls = logSpy.mock.calls.flat().join('');
 		expect(calls).toMatch(/\x1B\[/);
-		Object.defineProperty(process.stdout, 'isTTY', { value: undefined, configurable: true });
+		setTTY(undefined);
 	});
 
 	it('should write step header to file even when quiet', async () => {
