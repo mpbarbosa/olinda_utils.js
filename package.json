@@ -30,7 +30,8 @@
     "lint:fix": "eslint 'src/**/*.ts' --fix",
     "lint:md": "markdownlint '**/*.md' --ignore node_modules --ignore dist",
     "lint:md:fix": "markdownlint '**/*.md' --ignore node_modules --ignore dist --fix",
-    "cdn": "npm run build && bash cdn-delivery.sh"
+    "cdn": "npm run build && bash cdn-delivery.sh",
+    "test:docker": "bash scripts/run-tests-docker.sh"
   },
   "keywords": [
     "utils",
