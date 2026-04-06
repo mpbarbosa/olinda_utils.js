@@ -34,5 +34,8 @@ RUN npm ci --ignore-scripts
 # the dependency cache layer. .dockerignore controls what is excluded.
 COPY . .
 
+# Build both CJS and ESM outputs so integration tests can run against compiled output.
+RUN npm run build && npm run build:esm
+
 # Run the full Jest suite by default.
 CMD ["npm", "test"]

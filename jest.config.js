@@ -4,7 +4,9 @@ module.exports = {
 	testEnvironment: 'node',
 	testMatch: ['<rootDir>/test/**/*.test.ts', '<rootDir>/test/**/*.benchmark.ts'],
 	moduleNameMapper: {
-		'^(\\.{1,2}/.*)\\.js$': '$1',
+		// Strip .js from relative imports — but NOT from dist/ paths, which are
+		// pre-compiled files that integration tests load via require()/import().
+		'^(\\.{1,2}/(?!.*dist/).*)\.js$': '$1',
 	},
 	randomize: true,
 	cacheDirectory: '.jest-cache',
