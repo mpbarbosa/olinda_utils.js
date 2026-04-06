@@ -659,9 +659,9 @@ function generateColor(rand1, rand2, rand3) {
 ### Related Documentation
 
 - [CONTRIBUTING.md](../CONTRIBUTING.md) - Contribution guidelines and development practices
-- [Developer Guide](../docs/guides/DEVELOPER_GUIDE.md) - Development workflow and standards
-- [Testing Guide](../docs/guides/TESTING_GUIDE.md) - Testing referentially transparent code
-- [Design Principles](../docs/architecture/DESIGN_PRINCIPLES.md) - Architecture and design patterns
+- [Getting Started](../docs/GETTING_STARTED.md) - Development workflow and standards
+- [Contributing](../CONTRIBUTING.md) - Testing referentially transparent code
+- [Architecture](../docs/ARCHITECTURE.md) - Architecture and design patterns
 
 ### In This Project
 
