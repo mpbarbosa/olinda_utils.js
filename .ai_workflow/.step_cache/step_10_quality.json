@@ -104,12 +104,22 @@
     "jest.config.js": {
       "score": 100,
       "issueCount": 0,
-      "lastAnalyzed": "2026-03-10T16:13:46.353Z"
+      "lastAnalyzed": "2026-04-06T23:50:39.525Z"
     },
     "cdn-delivery.sh": {
       "score": 100,
       "issueCount": 0,
       "lastAnalyzed": "2026-03-10T16:13:46.353Z"
+    },
+    "vite.config.ts": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-06T23:50:39.525Z"
+    },
+    "scripts/run-tests-docker.sh": {
+      "score": 100,
+      "issueCount": 0,
+      "lastAnalyzed": "2026-04-06T23:50:39.525Z"
     }
   }
 }
